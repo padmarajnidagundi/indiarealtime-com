@@ -9,7 +9,7 @@
 ![Fuel price city page](assets/fuel-prices.gif)
 -->
 
-If you're building a data-aggregation site, a plugin-based architecture, or anything where "the upstream API will eventually lie to you" is a real design constraint — this is written for you. See [Challenges](#challenges-worth-mentioning) below.
+If you're building a data-aggregation site, a plugin-based architecture, or anything where "the upstream API will eventually lie to you" is a real design constraint — this is written for you. See [Challenges](https://github.com/padmarajnidagundi/indiarealtime-com/issues) below.
 
 ---
 
@@ -103,6 +103,6 @@ The upside is fault isolation and independent scheduling; the tradeoff is more s
 
 ## Talk to me
 
-This repo is a project overview, not the source — the codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, **open a [[Discussion](../../discussions](https://github.com/padmarajnidagundi/indiarealtime-com/issues))** — genuinely want to compare notes, not just collect stars.
+This repo is a project overview, not the source — the codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, **open a [[Discussion](https://github.com/padmarajnidagundi/indiarealtime-com/issues)** — genuinely want to compare notes, not just collect stars.
 
 <!-- TODO: contact / social links -->
