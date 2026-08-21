@@ -4,10 +4,11 @@
 
 🔗 **Live site:** https://indiarealtime.com
 
-<!-- TODO: add 2-4 screenshots or a GIF here, e.g.
-![AQI dashboard](assets/aqi-dashboard.png)
-![Fuel price city page](assets/fuel-prices.gif)
--->
+## Website screenshots
+
+| Web view | Mobile view |
+|---|---|
+| ![IndiaRealTime website web view](assets/website-webview.png) | ![IndiaRealTime website mobile view](assets/website-mobile.png) |
 
 If you're building a data-aggregation site, a plugin-based architecture, or anything where "the upstream API will eventually lie to you" is a real design constraint — this is written for you. See [Challenges](https://github.com/padmarajnidagundi/indiarealtime-com/issues) below.
 
