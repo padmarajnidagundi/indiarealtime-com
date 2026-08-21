@@ -13,7 +13,13 @@ If you're building a data-aggregation site, a plugin-based architecture, or anyt
 
 ---
 
-## Why this exists
+## Why India needs this
+
+The data itself already exists and is mostly public — it's just scattered across dozens of separate government and PSU portals, each with its own format, update cadence, and (often) reliability problems. A farmer checking today's mandi price has to know Agmarknet exists. Someone checking whether it's safe to go outside needs to know CPCB publishes AQI, on a different site, in a different format. Fuel prices change daily and vary by state (different VAT rates), but each oil marketing company only publishes its own numbers, separately, for the cities it serves.
+
+None of that requires new data to be collected — it requires someone to fetch what's already public, normalize the formats, and put mandi prices, fuel prices, AQI, weather alerts, and the rest in one place a person can actually check in a few seconds instead of five open tabs across five different government sites. That's the gap this project sits in.
+
+## Why this exists (the engineering side)
 
 Most "live data" sites in India either scrape once a day and call it real-time, or bolt a dozen unrelated widgets onto a page-builder theme until it can't be maintained. IndiaRealTime pulls from ~15 different public data sources (government APIs, exchanges, weather and seismic feeds) and turns each one into its own small, testable unit instead of one monolith.
 
