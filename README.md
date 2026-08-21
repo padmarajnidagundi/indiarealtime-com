@@ -103,6 +103,6 @@ The upside is fault isolation and independent scheduling; the tradeoff is more s
 
 ## Talk to me
 
-This repo is a project overview, not the source — the codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, **open a [Discussion](../../discussions)** — genuinely want to compare notes, not just collect stars.
+This repo is a project overview, not the source — the codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, **open a [[Discussion](../../discussions](https://github.com/padmarajnidagundi/indiarealtime-com/issues))** — genuinely want to compare notes, not just collect stars.
 
 <!-- TODO: contact / social links -->
