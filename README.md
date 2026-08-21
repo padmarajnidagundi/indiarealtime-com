@@ -1,6 +1,6 @@
 # IndiaRealTime
 
-**Live, India-specific data — mandi prices, fuel prices, air quality, weather alerts, cricket scores, earthquake alerts, and more — updated continuously and served as a fast WordPress site.**
+**Live, India-specific data - mandi prices, fuel prices, air quality, weather alerts, cricket scores, earthquake alerts, and more - updated continuously and served as a fast WordPress site.**
 
 🔗 **Live site:** https://indiarealtime.com
 
