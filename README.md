@@ -1,6 +1,6 @@
 # IndiaRealTime
 
-**Live, India-specific data — mandi prices, fuel prices, air quality, weather alerts, cricket scores, earthquake alerts, and more — updated continuously and served as a fast WordPress site.**
+**~20 independent WordPress plugins, one per public data source, feed a single site that tracks live mandi prices, fuel prices, air quality, weather alerts, earthquakes, and cricket scores across India — and keeps serving good data even when the government API behind it doesn't.**
 
 🔗 **Live site:** https://indiarealtime.com
 
@@ -8,6 +8,8 @@
 ![AQI dashboard](assets/aqi-dashboard.png)
 ![Fuel price city page](assets/fuel-prices.gif)
 -->
+
+If you're building a data-aggregation site, a plugin-based architecture, or anything where "the upstream API will eventually lie to you" is a real design constraint — this is written for you. See [Challenges](#challenges-worth-mentioning) below.
 
 ---
 
@@ -87,8 +89,14 @@ The upside is fault isolation and independent scheduling; the tradeoff is more s
 - Schema.org structured data via a dedicated plugin (`irt-dataset-schema`)
 - IndexNow integration for near-instant search engine indexing on data updates
 
-## Status
+## What's next
 
-Actively developed. This repo is a project overview, not the source — the codebase is closed for now. If you're working on something similar (data aggregation, WordPress plugin architecture, accessibility tooling) and want to compare notes, open an issue or reach out.
+- Historical price tracking currently exists for fuel and AQI, not yet for mandi/commodity prices — extending it there is the next real data gap to close.
+- More granular city coverage as sources allow it.
+- Broadening the accessibility audit in `STYLE-GUIDE.md` past color contrast to full keyboard/screen-reader passes.
+
+## Talk to me
+
+This repo is a project overview, not the source — the codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, **open a [Discussion](../../discussions)** — genuinely want to compare notes, not just collect stars.
 
 <!-- TODO: contact / social links -->
