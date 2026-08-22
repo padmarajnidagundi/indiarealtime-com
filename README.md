@@ -1,8 +1,8 @@
 # IndiaRealTime
 
-**~20 independent WordPress plugins, one per public data source, feed a single site that tracks live mandi prices, fuel prices, air quality, weather alerts, earthquakes, and cricket scores across India — and keeps serving good data even when the government API behind it doesn't.**
+**~20 independent WordPress plugins, one per public data source, feed a single site that tracks live mandi prices, fuel prices, air quality, weather alerts, earthquakes, and cricket scores across India. It keeps serving good data even when the government API behind it doesn't.**
 
-🔗 **Live site:** https://indiarealtime.com
+**Live site:** https://indiarealtime.com
 
 ## Website screenshots
 
@@ -10,15 +10,15 @@
 |---|---|
 | ![IndiaRealTime website web view](assets/website-webview.png) | ![IndiaRealTime website mobile view](assets/website-mobile.png) |
 
-If you're building a data-aggregation site, a plugin-based architecture, or anything where "the upstream API will eventually lie to you" is a real design constraint — this is written for you. See [Challenges](https://github.com/padmarajnidagundi/indiarealtime-com/issues) below.
+If you're building a data-aggregation site, a plugin-based architecture, or anything where "the upstream API will eventually lie to you" is a real design constraint, this is written for you. See [Challenges](https://github.com/padmarajnidagundi/indiarealtime-com/issues) below.
 
 ---
 
 ## Why India needs this
 
-The data itself already exists and is mostly public — it's just scattered across dozens of separate government and PSU portals, each with its own format, update cadence, and (often) reliability problems. A farmer checking today's mandi price has to know Agmarknet exists. Someone checking whether it's safe to go outside needs to know CPCB publishes AQI, on a different site, in a different format. Fuel prices change daily and vary by state (different VAT rates), but each oil marketing company only publishes its own numbers, separately, for the cities it serves.
+The data itself already exists and is mostly public. It's just scattered across dozens of separate government and PSU portals, each with its own format, update cadence, and (often) reliability problems. A farmer checking today's mandi price has to know Agmarknet exists. Someone checking whether it's safe to go outside needs to know CPCB publishes AQI, on a different site, in a different format. Fuel prices change daily and vary by state (different VAT rates), but each oil marketing company only publishes its own numbers, separately, for the cities it serves.
 
-None of that requires new data to be collected — it requires someone to fetch what's already public, normalize the formats, and put mandi prices, fuel prices, AQI, weather alerts, and the rest in one place a person can actually check in a few seconds instead of five open tabs across five different government sites. That's the gap this project sits in.
+None of that requires new data to be collected. It requires someone to fetch what's already public, normalize the formats, and put mandi prices, fuel prices, AQI, weather alerts, and the rest in one place a person can actually check in a few seconds instead of five open tabs across five different government sites. That's the gap this project sits in.
 
 ## Why this exists (the engineering side)
 
@@ -34,15 +34,15 @@ Most "live data" sites in India either scrape once a day and call it real-time, 
 | Culture | Panchang & muhurat timings, vrat calendar, rashifal |
 | Sport | Live cricket scores |
 
-Coverage is city/state-granular where the underlying data supports it — fuel prices, for instance, are tracked per city, not just a national average.
+Coverage is city/state-granular where the underlying data supports it. Fuel prices, for instance, are tracked per city, not a national average.
 
 ## How the site works, for visitors
 
 - **Browse by location**: URLs follow a `/state/city/category/` pattern (e.g. a state page, drilling into a city, drilling into a specific data category like fuel prices or AQI). Most categories exist both as a national overview and a per-city detail page.
 - **Compare prices**: a price-comparison view lines up a commodity or fuel type across cities/states side by side instead of making you open each city page separately.
-- **Calculators**: a metals calculator converts live gold/silver rates by weight and purity rather than just showing a per-gram number.
+- **Calculators**: a metals calculator converts live gold/silver rates by weight and purity instead of just showing a per-gram number.
 - **Share cards**: data pages generate a shareable image card (price, date, source) sized for social platforms, so a fact can be shared without a screenshot.
-- **Author hub**: every article is attributed to a real author with a profile page, not an anonymous byline — `/authors/` lists them, `/author/<name>/` shows their published work.
+- **Author hub**: every article is attributed to a real author with a profile page, not an anonymous byline. `/authors/` lists them, `/author/<name>/` shows their published work.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ IndexNow ping on update → search engines re-crawl fresh data within minutes,
   not on their own schedule
 ```
 
-The core decision: **each data source is a fully independent plugin**, not a shared ingestion pipeline. A plugin owns its own fetch schedule, cache, and failure handling. If one government API changes its response format or goes down, exactly one plugin breaks — the other ~19 keep serving. `irt-api-health-monitor` exists because with that many independent moving parts, you need one place that watches all of them rather than checking each plugin's logs by hand.
+The core decision: **each data source is a fully independent plugin**, not a shared ingestion pipeline. A plugin owns its own fetch schedule, cache, and failure handling. If one government API changes its response format or goes down, exactly one plugin breaks. The other ~19 keep serving. `irt-api-health-monitor` exists because with that many independent moving parts, you need one place that watches all of them rather than checking each plugin's logs by hand.
 
 ## Challenges worth mentioning
 
@@ -77,20 +77,20 @@ The core decision: **each data source is a fully independent plugin**, not a sha
 Fuel price and commodity sources fail, rate-limit, or return malformed data often enough that "just show what the API returned" isn't viable. The fix was a stale-while-revalidate style cache: fetch fails silently fall back to the last successfully cached value (comment in the code literally says *"serving yesterday's cached transient value"*), with a short-lived failure flag so retries don't hammer a source that's already down. Visitors see a slightly-stale number instead of a broken page.
 
 **Accessibility and color are load-bearing, not decorative.**
-Every semantic color — success/warning/danger states, the AQI severity scale — is checked against WCAG contrast ratios *and* color-vision-deficiency (CVD) simulation, and documented with the actual ratio next to the hex code. The AQI bands specifically match the official CPCB scale rather than an arbitrary gradient, because an air-quality site getting a color wrong has real consequences for someone deciding whether to go outside.
+Every semantic color (success/warning/danger states, the AQI severity scale) is checked against WCAG contrast ratios *and* color-vision-deficiency (CVD) simulation, and documented with the actual ratio next to the hex code. The AQI bands specifically match the official CPCB scale rather than an arbitrary gradient, because an air-quality site getting a color wrong has real consequences for someone deciding whether to go outside.
 
 **A hash has to agree across two languages.**
-Author attribution computes a hash on the PHP backend and again in JS on the frontend. PHP and JavaScript disagree on integer overflow by default, so the JS side has to explicitly use `Math.imul` to reproduce PHP's 32-bit wraparound — otherwise the two sides silently compute different values and attribution breaks in a way that's invisible until someone checks production data.
+Author attribution computes a hash on the PHP backend and again in JS on the frontend. PHP and JavaScript disagree on integer overflow by default, so the JS side has to explicitly use `Math.imul` to reproduce PHP's 32-bit wraparound. Otherwise the two sides silently compute different values and attribution breaks in a way that's invisible until someone checks production data.
 
 **Location-based routing without a rewrite-rule regex per state.**
-Every Indian state and city page shares one routing path (`ir_state` / `ir_sub` / `ir_sub2` query vars parsed from the URL) instead of a hand-written WordPress rewrite rule per region — necessary at this scale, but it means URL parsing has its own edge cases (trailing slashes, category vs. city ambiguity) that get covered by dedicated test files rather than caught by hand.
+Every Indian state and city page shares one routing path (`ir_state` / `ir_sub` / `ir_sub2` query vars parsed from the URL) instead of a hand-written WordPress rewrite rule per region. That's necessary at this scale, but it means URL parsing has its own edge cases (trailing slashes, category vs. city ambiguity) that get covered by dedicated test files rather than caught by hand.
 
 **~20 plugins is a maintainability bet, not a free lunch.**
-The upside is fault isolation and independent scheduling; the tradeoff is more surface area to keep consistent — shared conventions (transient naming, cache durations, failure-flag patterns) have to be enforced by discipline and code review rather than a shared framework, since each plugin is deliberately self-contained.
+The upside is fault isolation and independent scheduling; the tradeoff is more surface area to keep consistent. Shared conventions (transient naming, cache durations, failure-flag patterns) have to be enforced by discipline and code review rather than a shared framework, since each plugin is deliberately self-contained.
 
 ## Stack
 
-- **WordPress** (custom theme, no page builder) — PHP templates, vanilla JS/CSS
+- **WordPress** (custom theme, no page builder): PHP templates, vanilla JS/CSS
 - **~20 custom plugins**, one per data source, each with its own fetch/cache layer
 - **MySQL** for storage and transient caching; Docker Compose for local dev
 - Schema.org structured data via a dedicated plugin (`irt-dataset-schema`)
@@ -98,12 +98,12 @@ The upside is fault isolation and independent scheduling; the tradeoff is more s
 
 ## What's next
 
-- Historical price tracking currently exists for fuel and AQI, not yet for mandi/commodity prices — extending it there is the next real data gap to close.
+- Historical price tracking currently exists for fuel and AQI, not yet for mandi/commodity prices. Extending it there is the next real data gap to close.
 - More granular city coverage as sources allow it.
 - Broadening the accessibility audit in `STYLE-GUIDE.md` past color contrast to full keyboard/screen-reader passes.
 
 ## Talk to me
 
-This repo is a project overview, not the source — the codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, **open a [[Discussion](https://github.com/padmarajnidagundi/indiarealtime-com/issues)** — genuinely want to compare notes, not just collect stars.
+This repo is a project overview, not the source. The codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, open a [discussion](https://github.com/padmarajnidagundi/indiarealtime-com/issues). Genuinely want to compare notes.
 
 <!-- TODO: contact / social links -->
