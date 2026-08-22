@@ -3,6 +3,7 @@
 **~20 independent WordPress plugins, one per public data source, feed a single site that tracks live mandi prices, fuel prices, air quality, weather alerts, earthquakes, and cricket scores across India. It keeps serving good data even when the government API behind it doesn't.**
 
 **Live site:** https://indiarealtime.com
+**License:** [MIT](LICENSE)
 
 ## Website screenshots
 
@@ -73,20 +74,13 @@ The core decision: **each data source is a fully independent plugin**, not a sha
 
 ## Challenges worth mentioning
 
-**Government and exchange APIs are not reliable, and the site still has to look reliable.**
-Fuel price and commodity sources fail, rate-limit, or return malformed data often enough that "just show what the API returned" isn't viable. The fix was a stale-while-revalidate style cache: fetch fails silently fall back to the last successfully cached value (comment in the code literally says *"serving yesterday's cached transient value"*), with a short-lived failure flag so retries don't hammer a source that's already down. Visitors see a slightly-stale number instead of a broken page.
+Each of these got long enough to deserve its own page:
 
-**Accessibility and color are load-bearing, not decorative.**
-Every semantic color (success/warning/danger states, the AQI severity scale) is checked against WCAG contrast ratios *and* color-vision-deficiency (CVD) simulation, and documented with the actual ratio next to the hex code. The AQI bands specifically match the official CPCB scale rather than an arbitrary gradient, because an air-quality site getting a color wrong has real consequences for someone deciding whether to go outside.
-
-**A hash has to agree across two languages.**
-Author attribution computes a hash on the PHP backend and again in JS on the frontend. PHP and JavaScript disagree on integer overflow by default, so the JS side has to explicitly use `Math.imul` to reproduce PHP's 32-bit wraparound. Otherwise the two sides silently compute different values and attribution breaks in a way that's invisible until someone checks production data.
-
-**Location-based routing without a rewrite-rule regex per state.**
-Every Indian state and city page shares one routing path (`ir_state` / `ir_sub` / `ir_sub2` query vars parsed from the URL) instead of a hand-written WordPress rewrite rule per region. That's necessary at this scale, but it means URL parsing has its own edge cases (trailing slashes, category vs. city ambiguity) that get covered by dedicated test files rather than caught by hand.
-
-**~20 plugins is a maintainability bet, not a free lunch.**
-The upside is fault isolation and independent scheduling; the tradeoff is more surface area to keep consistent. Shared conventions (transient naming, cache durations, failure-flag patterns) have to be enforced by discipline and code review rather than a shared framework, since each plugin is deliberately self-contained.
+- [Serving stale data on purpose](notes/stale-cache-fallback.md): government and exchange APIs are not reliable, and the site still has to look reliable.
+- [Accessibility and color are load-bearing](notes/cvd-safe-aqi-colors.md): every semantic color is checked against WCAG contrast and color-vision-deficiency simulation.
+- [A hash has to agree across two languages](notes/cross-language-hash-parity.md): PHP and JavaScript disagree on integer overflow, and author attribution depends on them agreeing anyway.
+- [Location routing without a rewrite-rule regex per state](notes/location-routing-without-regex.md): one routing path for every state and city page instead of one rewrite rule per region.
+- [~20 plugins is a maintainability bet, not a free lunch](notes/plugin-per-source-tradeoff.md): fault isolation costs more surface area to keep consistent.
 
 ## Stack
 
