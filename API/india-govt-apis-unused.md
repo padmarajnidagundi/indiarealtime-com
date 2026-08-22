@@ -16,3 +16,5 @@ Free government data sources that don't map to any category IndiaRealTime curren
 ## Why these aren't in use
 
 None of them fit the site's current categories (prices, environment, civic/time, culture, sport). Adding one means adding a category, not just a plugin, so this list is a reference for what's possible, not a queue.
+
+Know a free India government API that's missing from this list? Open an issue or a PR against this file.

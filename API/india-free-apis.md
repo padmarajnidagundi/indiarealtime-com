@@ -28,3 +28,5 @@ Public/free data sources for each category IndiaRealTime covers. "Free" means a 
 ## How to use this list
 
 Each row maps to one plugin in the `~20 independent WordPress plugins` architecture (see repo [README](../README.md)). Rows with no official free API are the ones where the site's stale-cache fallback strategy matters most, since the fetcher is more likely to break or get rate-limited.
+
+Know a better or more current source for one of these? Open an issue or a PR against this file. The site's codebase is closed, but this list isn't.

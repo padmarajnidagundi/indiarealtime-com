@@ -37,6 +37,16 @@ Most "live data" sites in India either scrape once a day and call it real-time, 
 
 Coverage is city/state-granular where the underlying data supports it. Fuel prices, for instance, are tracked per city, not a national average.
 
+The full list of free India data APIs behind this, including the government ones the site doesn't use yet, is in [API/](API/).
+
+## Try it
+
+`scripts/fetch-pincode.js` is a small standalone example of the fetch-and-normalize pattern the site's plugins use, pointed at one no-key-needed API from the list above:
+
+```
+node scripts/fetch-pincode.js 560001
+```
+
 ## How the site works, for visitors
 
 - **Browse by location**: URLs follow a `/state/city/category/` pattern (e.g. a state page, drilling into a city, drilling into a specific data category like fuel prices or AQI). Most categories exist both as a national overview and a per-city detail page.
@@ -98,6 +108,6 @@ Each of these got long enough to deserve its own page:
 
 ## Talk to me
 
-This repo is a project overview, not the source. The codebase is closed for now, so there's nothing to PR against. But if you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, open a [discussion](https://github.com/padmarajnidagundi/indiarealtime-com/issues). Genuinely want to compare notes.
+This repo is a project overview, not the site's source, the WordPress codebase is closed for now. The [API list](API/) and the `scripts/` folder are fair game for PRs though, missing APIs, corrections, more fetch examples. If you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, open a [discussion](https://github.com/padmarajnidagundi/indiarealtime-com/issues). Genuinely want to compare notes.
 
 <!-- TODO: contact / social links -->
