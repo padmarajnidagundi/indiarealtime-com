@@ -44,6 +44,123 @@ Coverage is city/state-granular where the underlying data supports it. Fuel pric
 
 The full list of free India data APIs behind this, including the government ones the site doesn't use yet, is in [API/](API/).
 
+## Quick Start for Developers
+
+### Installation
+
+**Python SDK (recommended)**
+```bash
+pip install indiarealtime
+```
+
+**From source**
+```bash
+git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
+cd indiarealtime-com
+pip install -e .
+```
+
+### Real-Life Examples
+
+#### Example 1: Farmer Checking Mandi Prices (CLI)
+```bash
+# Get wheat prices in Punjab
+$ indiarealtime mandi --commodity wheat --state Punjab
+
+Commodity  Market           State         City      Price (₹)  Unit
+wheat      APMC Ludhiana    Punjab        Ludhiana  2450       Quintal
+wheat      APMC Amritsar    Punjab        Amritsar  2420       Quintal
+```
+
+#### Example 2: Startup Building Price Alert Bot (Python)
+```python
+from indiarealtime import IndiaRealTime
+
+irt = IndiaRealTime()
+
+# Get current wheat prices
+prices = irt.mandi_prices(commodity="wheat", state="Punjab", limit=5)
+
+for price in prices:
+    print(f"📊 {price.market}: ₹{price.price}/{price.unit}")
+    
+    # Alert if price drops below ₹2400
+    if price.price < 2400:
+        send_sms_alert(f"Wheat at {price.market} is ₹{price.price}!")
+```
+
+#### Example 3: Delivery App Checking Fuel Prices (REST API)
+```javascript
+// Fetch fuel prices for driver earnings calculation
+fetch('http://localhost:5000/v1/fuel/prices?state=Maharashtra&type=diesel')
+  .then(r => r.json())
+  .then(data => {
+    data.results.forEach(price => {
+      console.log(`Diesel in ${price.city}: ₹${price.price}/L`);
+    });
+  });
+```
+
+#### Example 4: News Website Scraping AQI (Python)
+```python
+from indiarealtime import IndiaRealTime
+import requests
+
+irt = IndiaRealTime()
+aqi = irt.air_quality(city="Delhi")
+
+if aqi[0].aqi > 300:
+    # Post alert headline
+    headline = f"🚨 Air Quality SEVERE in {aqi[0].city}: AQI {aqi[0].aqi}"
+    post_to_website(headline)
+```
+
+#### Example 5: Finance Dashboard Showing Rates (React)
+```jsx
+import { useState, useEffect } from 'react';
+
+function CurrencyRates() {
+  const [rates, setRates] = useState({});
+  
+  useEffect(() => {
+    fetch('/api/v1/finance/currency?base=INR&symbols=USD,EUR,GBP')
+      .then(r => r.json())
+      .then(d => setRates(d.rates));
+  }, []);
+  
+  return (
+    <div>
+      <h2>INR Exchange Rates</h2>
+      <p>1 INR = ${rates.USD?.toFixed(4)} USD</p>
+      <p>1 INR = €{rates.EUR?.toFixed(4)} EUR</p>
+    </div>
+  );
+}
+```
+
+### Local Setup (Docker)
+```bash
+git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
+cd indiarealtime-com
+
+# Start all services
+docker-compose up
+
+# WordPress at http://localhost:8080
+# API Server at http://localhost:5000
+# Monitoring at http://localhost:3000
+```
+
+### More Examples
+- [FastAPI Server with auto-docs](examples/fastapi_server.py)
+- [Telegram Bot for price alerts](examples/telegram_bot.py)
+- [Google Sheets auto-update](examples/google_sheets_integration.py)
+- [Next.js Dashboard](examples/nextjs_mandi_dashboard.tsx)
+
+See [examples/README.md](examples/) for complete setup instructions.
+
+---
+
 ## Try it
 
 `scripts/fetch-pincode.js` is a small standalone example of the fetch-and-normalize pattern the site's plugins use, pointed at one no-key-needed API from the list above:
