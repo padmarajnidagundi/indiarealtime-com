@@ -20,17 +20,32 @@ If you're building a data-aggregation site, a plugin-based architecture, or anyt
 
 ---
 
-## Why India needs this
+## Why India Users needs this website
 
-The data itself already exists and is mostly public. It's just scattered across dozens of separate government and PSU portals, each with its own format, update cadence, and (often) reliability problems. A farmer checking today's mandi price has to know Agmarknet exists. Someone checking whether it's safe to go outside needs to know CPCB publishes AQI, on a different site, in a different format. Fuel prices change daily and vary by state (different VAT rates), but each oil marketing company only publishes its own numbers, separately, for the cities it serves.
+The data itself already exists and is mostly public. It's just scattered across dozens of separate government and PSU portals, each with its own format, update cadence, and (often) reliability problems.
+
+### Real User Stories
+
+**🌾 Rajesh - Farmer in Punjab**
+> "I sell wheat at APMC Ludhiana. Every morning I had to visit 3 different websites to check prices in nearby markets to negotiate better rates. Now I check indiarealtime in 10 seconds before heading to the market."
+
+**🚖 Priya - Auto Driver in Bangalore**
+> "Fuel prices change daily and affect my earnings. I used to call friends in different cities to know rates. Now I check one app, see petrol/diesel prices across Bangalore to plan my routes."
+
+**👨‍👩‍👧 Amit - Parent in Delhi**
+> "Before letting my kids play outside, I need to check AQI. I used to google 5 different sources - Agmarknet, CPCB, weather sites - all showing different formats. Now one click and I know if it's safe to go out."
+
+---
+
+A farmer checking today's mandi price has to know Agmarknet exists. Someone checking whether it's safe to go outside needs to know CPCB publishes AQI, on a different site, in a different format. Fuel prices change daily and vary by state (different VAT rates), but each oil marketing company only publishes its own numbers, separately, for the cities it serves.
 
 None of that requires new data to be collected. It requires someone to fetch what's already public, normalize the formats, and put mandi prices, fuel prices, AQI, weather alerts, and the rest in one place a person can actually check in a few seconds instead of five open tabs across five different government sites. That's the gap this project sits in.
 
-## Why this exists (the engineering side)
+## Why this web exists (the engineering side)
 
 Most "live data" sites in India either scrape once a day and call it real-time, or bolt a dozen unrelated widgets onto a page-builder theme until it can't be maintained. IndiaRealTime pulls from ~15 different public data sources (government APIs, exchanges, weather and seismic feeds) and turns each one into its own small, testable unit instead of one monolith.
 
-## What we cover
+## What I cover now!
 
 | Category | Examples |
 |---|---|
@@ -44,7 +59,7 @@ Coverage is city/state-granular where the underlying data supports it. Fuel pric
 
 The full list of free India data APIs behind this, including the government ones the site doesn't use yet, is in [API/](API/).
 
-## Quick Start for Developers
+## Quick Start for - Developer guide
 
 ### Installation
 
@@ -60,7 +75,7 @@ cd indiarealtime-com
 pip install -e .
 ```
 
-### Real-Life Examples
+### Real-Life Integration Examples
 
 #### Example 1: Farmer Checking Mandi Prices (CLI)
 ```bash
@@ -169,7 +184,7 @@ See [examples/README.md](examples/) for complete setup instructions.
 node scripts/fetch-pincode.js 560001
 ```
 
-## How the site works, for visitors
+## How the India Real Time web site works for visitors / end users.
 
 - **Browse by location**: URLs follow a `/state/city/category/` pattern (e.g. a state page, drilling into a city, drilling into a specific data category like fuel prices or AQI). Most categories exist both as a national overview and a per-city detail page.
 - **Compare prices**: a price-comparison view lines up a commodity or fuel type across cities/states side by side instead of making you open each city page separately.
@@ -177,7 +192,7 @@ node scripts/fetch-pincode.js 560001
 - **Share cards**: data pages generate a shareable image card (price, date, source) sized for social platforms, so a fact can be shared without a screenshot.
 - **Author hub**: every article is attributed to a real author with a profile page, not an anonymous byline. `/authors/` lists them, `/author/<name>/` shows their published work.
 
-## Architecture
+## Architecture of the web application
 
 ```
 Public data sources (govt APIs, exchanges, weather/seismic feeds, ~15 total)
@@ -204,7 +219,7 @@ IndexNow ping on update → search engines re-crawl fresh data within minutes,
 
 The core decision: **each data source is a fully independent plugin**, not a shared ingestion pipeline. A plugin owns its own fetch schedule, cache, and failure handling. If one government API changes its response format or goes down, exactly one plugin breaks. The other ~19 keep serving. `irt-api-health-monitor` exists because with that many independent moving parts, you need one place that watches all of them rather than checking each plugin's logs by hand.
 
-## Challenges worth mentioning
+## Challenges worth mentioning I faced while building it.
 
 Each of these got long enough to deserve its own page:
 
@@ -214,7 +229,7 @@ Each of these got long enough to deserve its own page:
 - [Location routing without a rewrite-rule regex per state](notes/location-routing-without-regex.md): one routing path for every state and city page instead of one rewrite rule per region.
 - [~20 plugins is a maintainability bet, not a free lunch](notes/plugin-per-source-tradeoff.md): fault isolation costs more surface area to keep consistent.
 
-## Stack
+## Stack I used
 
 - **WordPress** (custom theme, no page builder): PHP templates, vanilla JS/CSS
 - **~20 custom plugins**, one per data source, each with its own fetch/cache layer
@@ -231,5 +246,7 @@ Each of these got long enough to deserve its own page:
 ## Talk to me
 
 This repo is a project overview, not the site's source, the WordPress codebase is closed for now. The [API list](API/) and the `scripts/` folder are fair game for PRs though, missing APIs, corrections, more fetch examples. If you've solved a version of any of the problems above (stale-cache fallback strategies, plugin-per-source architectures, CVD-safe color systems, cross-language hash parity), or you're hitting the same wall right now, open a [discussion](https://github.com/padmarajnidagundi/indiarealtime-com/issues). Genuinely want to compare notes.
+
+If you have better ideas then reach me via email.
 
 <!-- TODO: contact / social links -->
