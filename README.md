@@ -68,6 +68,8 @@ The full list of free India data APIs behind this, including the government ones
 pip install indiarealtime
 ```
 
+**📦 View on PyPI:** https://pypi.org/project/indiarealtime/
+
 **From source**
 ```bash
 git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
