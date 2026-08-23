@@ -1,0 +1,93 @@
+name: Test All Data Sources
+
+on:
+  schedule:
+    # Run daily at 9 AM IST (3:30 AM UTC)
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  test-sources:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        source: [mandi, fuel, aqi, weather, cricket, currency]
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests pytest pytest-cov
+      
+      - name: Run tests for ${{ matrix.source }}
+        run: |
+          pytest tests/test_${{ matrix.source }}.py -v --cov=indiarealtime/${{ matrix.source }}
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage.xml
+          flags: ${{ matrix.source }}
+
+  health-check:
+    runs-on: ubuntu-latest
+    needs: test-sources
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install SDK
+        run: |
+          pip install -e .
+      
+      - name: Check data freshness
+        run: |
+          python scripts/health_check.py
+      
+      - name: Create health report
+        run: |
+          python scripts/generate_health_report.py > health_report.md
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('health_report.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '## Health Report\n\n' + report
+            });
+
+  update-readme-badge:
+    runs-on: ubuntu-latest
+    needs: health-check
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Generate status badge
+        run: |
+          python scripts/generate_badges.py
+      
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git commit -m "Update health badges" || echo "No changes"
+          git push

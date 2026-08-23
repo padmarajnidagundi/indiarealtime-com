@@ -1,0 +1,32 @@
+# Requirements for IndiaRealTime SDK
+
+# Core dependencies
+requests>=2.28.0
+python-dateutil>=2.8.2
+pytz>=2022.7
+
+# CLI dependencies
+click>=8.1.0
+tabulate>=0.9.0
+
+# API server (optional)
+fastapi>=0.95.0
+uvicorn>=0.21.0
+pydantic>=1.10.0
+
+# Database (optional)
+sqlalchemy>=2.0.0
+mysql-connector-python>=8.0.0
+
+# Integrations (optional)
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.2.0
+google-api-python-client>=2.80.0
+python-telegram-bot>=20.0
+
+# Development dependencies
+pytest>=7.0
+pytest-cov>=4.0
+black>=22.0
+flake8>=4.0
+mypy>=0.990

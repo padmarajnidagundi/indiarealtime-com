@@ -1,0 +1,417 @@
+openapi: 3.0.0
+info:
+  title: IndiaRealTime API
+  description: Live India data aggregator - access mandi prices, fuel rates, AQI, weather, earthquakes, cricket scores, and more.
+  version: 1.0.0
+  contact:
+    name: IndiaRealTime
+    url: https://indiarealtime.com
+  license:
+    name: MIT
+    url: https://github.com/padmarajnidagundi/indiarealtime-com/blob/main/LICENSE
+
+servers:
+  - url: https://api.indiarealtime.com
+    description: Production API
+  - url: http://localhost:5000
+    description: Local development server
+
+tags:
+  - name: Mandi Prices
+    description: Agricultural commodity prices
+  - name: Fuel Prices
+    description: Petrol, diesel, and LPG prices
+  - name: Environment
+    description: Air quality, weather, earthquakes
+  - name: Finance
+    description: Currency rates, metal prices
+  - name: Sports
+    description: Cricket scores and rankings
+  - name: Health
+    description: API health and status
+
+paths:
+  /v1/health:
+    get:
+      summary: API health status
+      tags:
+        - Health
+      responses:
+        '200':
+          description: API is operational
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [operational, degraded, down]
+                  last_updated:
+                    type: string
+                    format: date-time
+                  uptime_percentage:
+                    type: number
+                    format: float
+
+  /v1/mandi/prices:
+    get:
+      summary: Get mandi prices for agricultural commodities
+      tags:
+        - Mandi Prices
+      parameters:
+        - name: commodity
+          in: query
+          description: Commodity name (e.g., wheat, rice, onion)
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: State name
+          schema:
+            type: string
+        - name: city
+          in: query
+          description: Market/city name
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 500
+      responses:
+        '200':
+          description: List of mandi prices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MandiPrice'
+        '400':
+          description: Invalid parameters
+        '503':
+          description: Service unavailable
+
+  /v1/mandi/commodities:
+    get:
+      summary: Get list of tracked commodities
+      tags:
+        - Mandi Prices
+      parameters:
+        - name: state
+          in: query
+          description: State name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of commodities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  commodities:
+                    type: array
+                    items:
+                      type: string
+
+  /v1/fuel/prices:
+    get:
+      summary: Get fuel prices by location
+      tags:
+        - Fuel Prices
+      parameters:
+        - name: type
+          in: query
+          description: Fuel type
+          schema:
+            type: string
+            enum: [petrol, diesel, lpg]
+            default: petrol
+        - name: state
+          in: query
+          schema:
+            type: string
+        - name: city
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of fuel prices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FuelPrice'
+
+  /v1/environment/aqi:
+    get:
+      summary: Get air quality index (AQI) data
+      tags:
+        - Environment
+      parameters:
+        - name: city
+          in: query
+          schema:
+            type: string
+        - name: state
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Air quality data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AirQuality'
+
+  /v1/weather/alerts:
+    get:
+      summary: Get weather alerts
+      tags:
+        - Environment
+      parameters:
+        - name: state
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Weather alerts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Weather'
+
+  /v1/sport/cricket/scores:
+    get:
+      summary: Get live cricket scores
+      tags:
+        - Sports
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Cricket scores
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CricketScore'
+
+  /v1/finance/currency:
+    get:
+      summary: Get currency exchange rates
+      tags:
+        - Finance
+      parameters:
+        - name: base
+          in: query
+          description: Base currency (ISO 4217)
+          schema:
+            type: string
+            default: INR
+            pattern: '^[A-Z]{3}$'
+        - name: symbols
+          in: query
+          description: Target currencies (comma-separated)
+          schema:
+            type: string
+            example: "USD,EUR,GBP"
+      responses:
+        '200':
+          description: Exchange rates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  base:
+                    type: string
+                  rates:
+                    type: object
+                    additionalProperties:
+                      type: number
+                      format: float
+
+components:
+  schemas:
+    MandiPrice:
+      type: object
+      properties:
+        commodity:
+          type: string
+          example: "wheat"
+        market:
+          type: string
+          example: "APMC Mumbai"
+        state:
+          type: string
+          example: "Maharashtra"
+        city:
+          type: string
+          example: "Mumbai"
+        price:
+          type: number
+          format: float
+          example: 2450.50
+        currency:
+          type: string
+          example: "INR"
+        unit:
+          type: string
+          example: "Quintal"
+        updated_at:
+          type: string
+          format: date-time
+        source:
+          type: string
+          example: "Agmarknet"
+
+    FuelPrice:
+      type: object
+      properties:
+        fuel_type:
+          type: string
+          enum: [petrol, diesel, lpg]
+        state:
+          type: string
+        city:
+          type: string
+        price:
+          type: number
+          format: float
+        currency:
+          type: string
+          default: "INR"
+        unit:
+          type: string
+          default: "Liter"
+        updated_at:
+          type: string
+          format: date-time
+        source:
+          type: string
+
+    AirQuality:
+      type: object
+      properties:
+        city:
+          type: string
+        state:
+          type: string
+        aqi:
+          type: integer
+          minimum: 0
+          maximum: 500
+          description: Air Quality Index
+        aqi_category:
+          type: string
+          enum: [Good, Moderate, Poor, Very Poor, Severe]
+        pm25:
+          type: number
+          format: float
+          description: "PM2.5 in µg/m³"
+        pm10:
+          type: number
+          format: float
+          description: "PM10 in µg/m³"
+        updated_at:
+          type: string
+          format: date-time
+        source:
+          type: string
+          example: "CPCB"
+
+    Weather:
+      type: object
+      properties:
+        state:
+          type: string
+        alert_type:
+          type: string
+          enum: [Warning, Watch, Advisory]
+        description:
+          type: string
+        issued_at:
+          type: string
+          format: date-time
+        valid_until:
+          type: string
+          format: date-time
+        severity:
+          type: string
+          enum: [Low, Moderate, High, Severe]
+        source:
+          type: string
+          example: "IMD"
+
+    CricketScore:
+      type: object
+      properties:
+        match_id:
+          type: string
+        teams:
+          type: string
+          example: "India vs Australia"
+        format:
+          type: string
+          enum: [Test, ODI, T20]
+        status:
+          type: string
+          enum: [Live, Upcoming, Completed]
+        score_team1:
+          type: string
+          example: "150/3"
+        score_team2:
+          type: string
+        current_over:
+          type: string
+          example: "10.3"
+        updated_at:
+          type: string
+          format: date-time

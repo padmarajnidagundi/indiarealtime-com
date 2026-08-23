@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: indiarealtime-wp
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: indiarealtime
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DEBUG: 'true'
+      WORDPRESS_DEBUG_LOG: /var/www/html/wp-content/debug.log
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./scripts:/app/scripts
+    depends_on:
+      - mysql
+    networks:
+      - indiarealtime
+
+  mysql:
+    image: mysql:8.0
+    container_name: indiarealtime-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: indiarealtime
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - indiarealtime
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-server:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: indiarealtime-api
+    ports:
+      - "5000:5000"
+    environment:
+      WORDPRESS_HOST: http://wordpress
+      ENVIRONMENT: development
+    depends_on:
+      - wordpress
+    networks:
+      - indiarealtime
+    volumes:
+      - ./api:/app/api
+
+  # Optional: Monitoring dashboard
+  monitoring:
+    image: node:18-alpine
+    container_name: indiarealtime-monitor
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./monitoring:/app
+    command: npm start
+    depends_on:
+      - api-server
+    networks:
+      - indiarealtime
+
+volumes:
+  mysql_data:
+
+networks:
+  indiarealtime:
+    driver: bridge
