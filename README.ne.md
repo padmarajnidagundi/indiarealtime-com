@@ -1,0 +1,274 @@
+# IndiaRealTime
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
+[![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/padmarajnidagundi/indiarealtime-com?style=social)](https://github.com/padmarajnidagundi/indiarealtime-com/stargazers)
+[![Open issues](https://img.shields.io/github/issues/padmarajnidagundi/indiarealtime-com)](https://github.com/padmarajnidagundi/indiarealtime-com/issues)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](API/)
+
+🌐 **भाषा:** [English](README.md) · [हिन्दी](README.hi.md) · [বাংলা](README.bn.md) · [मराठी](README.mr.md) · [తెలుగు](README.te.md) · [தமிழ்](README.ta.md) · [ગુજરાતી](README.gu.md) · [ಕನ್ನಡ](README.kn.md) · [മലയാളം](README.ml.md) · [ਪੰਜਾਬੀ](README.pa.md) · [ଓଡ଼ିଆ](README.or.md) · [অসমীয়া](README.as.md) · [اردو](README.ur.md) · [संस्कृतम्](README.sa.md) · नेपाली · [कोंकणी](README.kok.md) · [मैथिली](README.mai.md)
+
+**~२० स्वतन्त्र WordPress प्लगइनहरू, प्रत्येक एउटा फरक सार्वजनिक डेटा स्रोतका लागि, मिलेर एउटै साइट चलाउँछन् जसले सम्पूर्ण भारतभर लाइभ मण्डी मूल्य, इन्धनको मूल्य, हावाको गुणस्तर, मौसम चेतावनी, भूकम्प, र क्रिकेट स्कोर ट्र्याक गर्छ। यसको पछाडिको सरकारी API ले काम गर्न छाड्दा पनि यसले राम्रो डेटा दिन जारी राख्छ।**
+
+**लाइभ साइट:** https://indiarealtime.com
+
+## वेबसाइट स्क्रिनसट
+
+| वेब भ्यु | मोबाइल भ्यु |
+|---|---|
+| ![IndiaRealTime website web view](assets/website-webview.png) | ![IndiaRealTime website mobile view](assets/website-mobile.png) |
+
+---
+
+## 📱 IndiaRealTime बारे
+
+### समस्या के हो
+
+डेटा पहिले नै अवस्थित छ, धेरैजसो सार्वजनिक नै छ। यो केवल दर्जनौं फरक-फरक सरकारी र PSU पोर्टलहरूमा छरिएको छ, हरेकको आफ्नै ढाँचा, अपडेट हुने समय, र (प्रायः) भरपर्दोपनको समस्या।
+
+पञ्जाबमा मण्डी मूल्य हेर्न चाहने किसानलाई थाहा हुनुपर्छ कि Agmarknet भन्ने केही छ। बाहिर जानु सुरक्षित छ कि छैन थाहा पाउन चाहने कसैलाई थाहा हुनुपर्छ कि CPCB ले फरक वेबसाइटमा, फरक ढाँचामा AQI प्रकाशित गर्छ। इन्धनको मूल्य दैनिक परिवर्तन हुन्छ र राज्यअनुसार फरक हुन्छ (फरक VAT दर), तर प्रत्येक तेल कम्पनीले आफूले सेवा दिने सहरहरूका लागि मात्र, अलग-अलग, आफ्नै अंकहरू मात्र प्रकाशित गर्छ।
+
+यसका लागि नयाँ डेटा सङ्कलन गर्नु आवश्यक छैन। पहिले नै सार्वजनिक भइसकेको कुरा ल्याएर, ढाँचालाई सामान्य बनाएर, मण्डी मूल्य, इन्धनको मूल्य, AQI, मौसम चेतावनी आदिलाई एउटै ठाउँमा राख्नु आवश्यक छ ताकि कुनै व्यक्तिले पाँच फरक सरकारी साइटका पाँच ट्याब खोल्नुको सट्टा केही सेकेन्डमै हेर्न सकोस्। **यही खाडललाई IndiaRealTime ले पूरा गर्छ।**
+
+### वास्तविक प्रयोगकर्ताका कथाहरू
+
+**🌾 राजेश - पञ्जाबका किसान**
+> "म APMC लुधियानामा गहुँ बेच्छु। हरेक बिहान राम्रो मूल्यमा मोलतोल गर्न मलाई नजिकैका बजारका मूल्य हेर्न ३ वटा फरक वेबसाइट हेर्नुपर्थ्यो। अहिले बजार जानुअघि म १० सेकेन्डमा indiarealtime हेरिहाल्छु।"
+
+**🚖 प्रिया - बेङ्गलोरकी अटो चालक**
+> "इन्धनको मूल्य दैनिक परिवर्तन हुन्छ र मेरो कमाइलाई असर गर्छ। पहिले म फरक-फरक सहरका साथीहरूलाई फोन गरेर दर थाहा पाउँथेँ। अहिले म एउटै एपमा बेङ्गलोरभरि पेट्रोल/डिजेलको मूल्य हेरेर मेरो मार्ग योजना बनाउँछु।"
+
+**👨‍👩‍👧 अमित - दिल्लीका अभिभावक**
+> "मेरा बच्चाहरूलाई बाहिर खेल्न पठाउनुअघि मलाई AQI हेर्नुपर्छ। पहिले म ५ वटा फरक स्रोत गुगल गर्थेँ - Agmarknet, CPCB, मौसम साइटहरू - सबै फरक ढाँचामा। अहिले एउटै क्लिकमा थाहा हुन्छ बाहिर जानु सुरक्षित छ कि छैन।"
+
+### हामी के ट्र्याक गर्छौं
+
+| श्रेणी | उदाहरणहरू |
+|---|---|
+| मूल्य | मण्डी (कृषि उत्पादन), इन्धन र LPG राज्य/सहरअनुसार, बहुमूल्य धातु, मुद्रा रूपान्तरण, म्युचुअल फन्ड NAV, FD दर, टोल दर |
+| वातावरण | हावाको गुणस्तर (AQI, CPCB ब्यान्ड), मौसम चेतावनी, भूकम्प चेतावनी |
+| नागरिक / समय | बैंक बिदा, पिनकोड खोज, समय क्षेत्र रूपान्तरण |
+| संस्कृति | पञ्चाङ्ग र मुहूर्त समय, व्रत पात्रो, राशिफल |
+| खेलकुद | लाइभ क्रिकेट स्कोर |
+
+मूल डेटाले अनुमति दिएको ठाउँमा कभरेज सहर/राज्य स्तरमा सूक्ष्म छ। उदाहरणका लागि, इन्धनको मूल्य राष्ट्रिय औसत होइन, हरेक सहरअनुसार ट्र्याक गरिन्छ।
+
+यसको पछाडिको निःशुल्क भारतीय डेटा API हरूको पूर्ण सूची, साइटले अझै प्रयोग नगरेका सरकारी API हरू सहित, [API/](API/) मा छ।
+
+### आगन्तुकहरूका लागि यो कसरी काम गर्छ
+
+- **स्थानअनुसार ब्राउज गर्नुहोस्**: URL हरूले `/state/city/category/` ढाँचा पछ्याउँछन् (जस्तै एउटा राज्य पृष्ठ, त्यसपछि सहरमा जाने, त्यसपछि इन्धन मूल्य वा AQI जस्तो कुनै विशेष श्रेणीमा)। धेरैजसो श्रेणीहरू राष्ट्रिय सिंहावलोकन र सहर-विशेष विवरण पृष्ठ दुवै रूपमा छन्।
+- **मूल्य तुलना गर्नुहोस्**: मूल्य-तुलना दृश्यले कुनै वस्तु वा इन्धन प्रकारलाई सहर/राज्यहरूमा छेउछाउ देखाउँछ, हरेक सहरको पृष्ठ अलग-अलग खोल्नुको सट्टा।
+- **क्यालकुलेटरहरू**: धातु क्यालकुलेटरले प्रति-ग्राम अंक मात्र देखाउनुको सट्टा लाइभ सुन/चाँदीको दरलाई तौल र शुद्धताअनुसार परिवर्तन गर्छ।
+- **सेयर कार्डहरू**: डेटा पृष्ठहरूले सामाजिक प्लेटफर्महरूका लागि उपयुक्त आकारको सेयर गर्न मिल्ने छवि कार्ड (मूल्य, मिति, स्रोत) बनाउँछन्, ताकि स्क्रिनसट बिना नै कुनै तथ्य साझा गर्न सकियोस्।
+- **लेखक हब**: हरेक लेख गुमनाम बाइलाइन होइन, बरु उनीहरूको प्रोफाइल पृष्ठसहित एक वास्तविक लेखकलाई श्रेय दिइन्छ। `/authors/` ले सबैलाई सूचीबद्ध गर्छ, `/author/<name>/` ले उनीहरूको प्रकाशित काम देखाउँछ।
+
+---
+
+## 🏗️ वेब एप्लिकेसनको आर्किटेक्चर
+
+भारतमा धेरैजसो "लाइभ डेटा" साइटहरूले या त दिनको एकपटक स्क्र्याप गरेर त्यसलाई रियल-टाइम भन्छन्, वा यो सम्भार्न नसकिने नभएसम्म पेज-बिल्डर थिममा दर्जनौं असम्बन्धित विजेटहरू थप्दै जान्छन्। IndiaRealTime ले लगभग १५ फरक सार्वजनिक डेटा स्रोतहरू (सरकारी API, एक्सचेन्ज, मौसम र भूकम्पीय फिड) बाट डेटा लिन्छ र हरेकलाई एउटा मोनोलिथको सट्टा आफ्नै सानो, परीक्षण गर्न मिल्ने एकाइमा परिणत गर्छ।
+
+यदि तपाईं डेटा-एग्रिगेसन साइट, प्लगइन-आधारित आर्किटेक्चर, वा "अपस्ट्रिम API अन्ततः धोका दिनेछ" भन्ने कुरा वास्तविक डिजाइन सीमितता भएको केही बनाउँदै हुनुहुन्छ भने, यो तपाईंकै लागि लेखिएको हो।
+
+### प्राविधिक रेखाचित्र
+
+```
+Public data sources (govt APIs, exchanges, weather/seismic feeds, ~15 total)
+        │
+        ▼
+One WordPress plugin per source  ──►  WP-Cron fetch on its own schedule
+  (fetch → validate → normalize)       (e.g. every 6h for commodities/AQI,
+        │                               daily for fuel prices)
+        ▼
+WP transient cache (MySQL-backed)  ◄── on fetch failure, keep serving the
+        │                               last good cached value instead of
+        ▼                               erroring or showing nothing
+Custom theme templates (PHP)
+  render location/category pages
+        │
+        ▼
+irt-dataset-schema → schema.org JSON-LD  +  irt-api-health-monitor watches
+  (machine-readable structured data)       all fetchers from one dashboard
+        │
+        ▼
+IndexNow ping on update → search engines re-crawl fresh data within minutes,
+  not on their own schedule
+```
+
+### डिजाइन दर्शन
+
+**हरेक डेटा स्रोत पूर्णतया स्वतन्त्र प्लगइन हो**, साझा इन्जेस्चन पाइपलाइन होइन। एउटा प्लगइनको आफ्नै फेच तालिका, क्यास, र असफलता व्यवस्थापन हुन्छ। कुनै सरकारी API ले आफ्नो प्रतिक्रिया ढाँचा परिवर्तन गर्यो वा बन्द भयो भने, ठ्याक्कै एउटा प्लगइन मात्र बिग्रन्छ। बाँकी ~१९ ले सेवा दिन जारी राख्छन्। यति धेरै स्वतन्त्र चलिरहेका भागहरू हुँदा, हरेक प्लगइनको लग हातैले जाँच्नुको सट्टा सबैलाई एकै ठाउँबाट हेर्ने प्रणाली आवश्यक भएकाले `irt-api-health-monitor` छ।
+
+### स्ट्याक
+
+- **WordPress** (कस्टम थिम, पेज बिल्डर छैन): PHP टेम्प्लेटहरू, भ्यानिला JS/CSS
+- **~२० कस्टम प्लगइनहरू**, प्रत्येक डेटा स्रोतका लागि एउटा, प्रत्येकको आफ्नै फेच/क्यास तह
+- भण्डारण र ट्रान्जिएन्ट क्यासिङका लागि **MySQL**; स्थानीय डेभका लागि Docker Compose
+- एउटा समर्पित प्लगइन (`irt-dataset-schema`) मार्फत Schema.org संरचित डेटा
+- डेटा अपडेटमा लगभग तत्काल सर्च इन्जिन इन्डेक्सिङका लागि IndexNow एकीकरण
+
+---
+
+## 👨‍💻 डेभलपरहरूले यसलाई कसरी प्रयोग गर्न सक्छन्
+
+यदि तपाईं आफ्नो एपमा भारतीय बजार डेटा, लाइभ प्राइसिङ, मौसम, वा AQI आवश्यक पर्ने सुविधाहरू बनाउँदै हुनुहुन्छ भने - तपाईं IndiaRealTime लाई Python प्याकेज, कमाण्ड-लाइन टुल, वा REST API का रूपमा प्रयोग गर्न सक्नुहुन्छ।
+
+### इन्स्टलेसन
+
+**Python SDK (सिफारिस गरिएको)**
+```bash
+pip install indiarealtime
+```
+
+**📦 PyPI मा हेर्नुहोस्:** https://pypi.org/project/indiarealtime/
+
+**स्रोतबाट**
+```bash
+git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
+cd indiarealtime-com
+pip install -e .
+```
+
+### वास्तविक एकीकरण उदाहरणहरू
+
+#### उदाहरण १: मण्डी मूल्य हेर्ने किसान (CLI)
+```bash
+# Get wheat prices in Punjab
+$ indiarealtime mandi --commodity wheat --state Punjab
+
+Commodity  Market           State         City      Price (₹)  Unit
+wheat      APMC Ludhiana    Punjab        Ludhiana  2450       Quintal
+wheat      APMC Amritsar    Punjab        Amritsar  2420       Quintal
+```
+
+#### उदाहरण २: मूल्य अलर्ट बोट बनाउने स्टार्टअप (Python)
+```python
+from indiarealtime import IndiaRealTime
+
+irt = IndiaRealTime()
+
+# Get current wheat prices
+prices = irt.mandi_prices(commodity="wheat", state="Punjab", limit=5)
+
+for price in prices:
+    print(f"📊 {price.market}: ₹{price.price}/{price.unit}")
+    
+    # Alert if price drops below ₹2400
+    if price.price < 2400:
+        send_sms_alert(f"Wheat at {price.market} is ₹{price.price}!")
+```
+
+#### उदाहरण ३: इन्धन मूल्य जाँच गर्ने डेलिभरी एप (REST API)
+```javascript
+// Fetch fuel prices for driver earnings calculation
+fetch('http://localhost:5000/v1/fuel/prices?state=Maharashtra&type=diesel')
+  .then(r => r.json())
+  .then(data => {
+    data.results.forEach(price => {
+      console.log(`Diesel in ${price.city}: ₹${price.price}/L`);
+    });
+  });
+```
+
+#### उदाहरण ४: AQI स्क्र्याप गर्ने न्युज वेबसाइट (Python)
+```python
+from indiarealtime import IndiaRealTime
+import requests
+
+irt = IndiaRealTime()
+aqi = irt.air_quality(city="Delhi")
+
+if aqi[0].aqi > 300:
+    # Post alert headline
+    headline = f"🚨 Air Quality SEVERE in {aqi[0].city}: AQI {aqi[0].aqi}"
+    post_to_website(headline)
+```
+
+#### उदाहरण ५: दर देखाउने फाइनान्स ड्यासबोर्ड (React)
+```jsx
+import { useState, useEffect } from 'react';
+
+function CurrencyRates() {
+  const [rates, setRates] = useState({});
+  
+  useEffect(() => {
+    fetch('/api/v1/finance/currency?base=INR&symbols=USD,EUR,GBP')
+      .then(r => r.json())
+      .then(d => setRates(d.rates));
+  }, []);
+  
+  return (
+    <div>
+      <h2>INR Exchange Rates</h2>
+      <p>1 INR = ${rates.USD?.toFixed(4)} USD</p>
+      <p>1 INR = €{rates.EUR?.toFixed(4)} EUR</p>
+    </div>
+  );
+}
+```
+
+### स्थानीय डेभलपमेन्ट सेटअप (Docker)
+```bash
+git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
+cd indiarealtime-com
+
+# Start all services
+docker-compose up
+
+# WordPress at http://localhost:8080
+# API Server at http://localhost:5000
+# Monitoring at http://localhost:3000
+```
+
+### आफैं प्रयास गर्नुहोस्
+
+`scripts/fetch-pincode.js` साइटका प्लगइनहरूले प्रयोग गर्ने फेच-र-नर्मलाइज ढाँचाको एउटा सानो स्वतन्त्र उदाहरण हो, माथिको सूचीबाट कुञ्जी नचाहिने एउटा API मा लागू गरिएको:
+
+```
+node scripts/fetch-pincode.js 560001
+```
+
+### थप उदाहरणहरू
+- [अटो-डक्ससहित FastAPI सर्भर](examples/fastapi_server.py)
+- [मूल्य अलर्टका लागि Telegram बोट](examples/telegram_bot.py)
+- [Google Sheets अटो-अपडेट](examples/google_sheets_integration.py)
+- [Next.js ड्यासबोर्ड](examples/nextjs_mandi_dashboard.tsx)
+
+पूर्ण सेटअप निर्देशनका लागि [examples/README.md](examples/) हेर्नुहोस्।
+
+---
+
+## ⚠️ प्राविधिक चुनौतीहरू
+
+### इन्जिनियरिङ निर्णय र पाठहरू
+
+यी मध्ये हरेक चुनौती यति लामो भयो कि यसले आफ्नै पृष्ठ पाउनुपर्ने भयो:
+
+- **[जानाजान पुरानो डेटा दिने](notes/stale-cache-fallback.md)**: सरकारी र एक्सचेन्ज API भरपर्दो हुँदैनन्, तैपनि साइट भरपर्दो देखिनुपर्छ। कुनै अपस्ट्रिम API असफल हुँदा, हामी त्रुटि देखाउने वा केही नदेखाउनुको सट्टा अन्तिम राम्रो क्यास गरिएको मूल्य देखाउँछौं।
+- **[पहुँचयोग्यता र रङ, दुवै महत्त्वपूर्ण](notes/cvd-safe-aqi-colors.md)**: डेटा सबैका लागि पहुँचयोग्य होस् भनेर हरेक अर्थपूर्ण रङलाई WCAG कन्ट्रास्ट र रङ-दृष्टि-कमी सिमुलेसनका विरुद्ध जाँचिन्छ।
+- **[दुई भाषामा मिल्ने ह्यास](notes/cross-language-hash-parity.md)**: PHP र JavaScript इन्टिजर ओभरफ्लोमा सहमत हुँदैनन्, तैपनि लेखक श्रेय निर्धारण तिनीहरूको सहमतिमा नै निर्भर छ।
+- **[हरेक राज्यका लागि रिराइट-रुल regex बिना स्थान राउटिङ](notes/location-routing-without-regex.md)**: हरेक क्षेत्रका लागि एउटा रिराइट नियमको सट्टा हरेक राज्य र सहर पृष्ठका लागि एउटै राउटिङ मार्ग।
+- **[~२० प्लगइनहरू एउटा मर्मत-योग्यता दाउ हो, निःशुल्क होइन](notes/plugin-per-source-tradeoff.md)**: दोष पृथकीकरणको मूल्य भनेको सबै कुरा एकरूप राख्न बढी क्षेत्रफल हो।
+
+---
+
+## 🚀 अब के
+
+- ऐतिहासिक मूल्य ट्र्याकिङ हाल इन्धन र AQI का लागि मात्र छ, मण्डी/वस्तु मूल्यका लागि अझै छैन। त्यसलाई त्यहाँसम्म फैलाउनु नै अर्को वास्तविक डेटा खाडल हो जुन पूरा गर्नुपर्छ।
+- स्रोतहरूले अनुमति दिएअनुसार थप सूक्ष्म सहर कभरेज।
+- `STYLE-GUIDE.md` मा रहेको पहुँचयोग्यता लेखा परीक्षणलाई रङ कन्ट्रास्टभन्दा पर पूर्ण किबोर्ड/स्क्रिन-रिडर परीक्षणसम्म विस्तार गर्ने।
+
+---
+
+## 👋 लेखक बारे
+
+यो रिपोजिटरी प्रोजेक्टको एउटा सिंहावलोकन हो, साइटको स्रोत होइन। WordPress कोडबेस अहिलेका लागि बन्द छ। तर, [API सूची](API/) र `scripts/` फोल्डर PR का लागि खुला छन् - छुटेका API, सुधार, फेचका थप उदाहरणहरू, सबैको स्वागत छ।
+
+यदि तपाईंले माथि उल्लेख गरिएका समस्याहरू मध्ये कुनैको समाधान गर्नुभएको छ (स्टेल-क्यास फलब्याक रणनीति, प्लगइन-प्रति-स्रोत आर्किटेक्चर, CVD-सेफ रङ प्रणाली, क्रस-ल्याङ्ग्वेज ह्यास प्यारिटी), वा तपाईं अहिले त्यही पर्खालसँग जुधिरहनुभएको छ भने, एउटा [छलफल](https://github.com/padmarajnidagundi/indiarealtime-com/issues) खोल्नुहोस्। म साँच्चै टिप्पणीहरू तुलना गर्न चाहन्छु।
+
+**योगदानको स्वागत छ:** नयाँ डेटा स्रोतहरूलाई प्लगइनका रूपमा कसरी थप्ने भन्नेका लागि [CONTRIBUTING.md](CONTRIBUTING.md) हेर्नुहोस्, वा मद्दतका अन्य तरिकाहरूका लागि [CONTRIBUTORS_GUIDE.md](CONTRIBUTORS_GUIDE.md) हेर्नुहोस्।
+
+यदि तपाईंसँग प्रश्न वा विचारहरू छन् भने, [GitHub Issues](https://github.com/padmarajnidagundi/indiarealtime-com/issues) वा इमेल मार्फत सम्पर्क गर्नुहोस्।
+
+<!-- TODO: contact / social links -->
