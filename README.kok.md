@@ -1,0 +1,274 @@
+# IndiaRealTime
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
+[![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/padmarajnidagundi/indiarealtime-com?style=social)](https://github.com/padmarajnidagundi/indiarealtime-com/stargazers)
+[![Open issues](https://img.shields.io/github/issues/padmarajnidagundi/indiarealtime-com)](https://github.com/padmarajnidagundi/indiarealtime-com/issues)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](API/)
+
+🌐 **भाशा:** [English](README.md) · [हिन्दी](README.hi.md) · [বাংলা](README.bn.md) · [मराठी](README.mr.md) · [తెలుగు](README.te.md) · [தமிழ்](README.ta.md) · [ગુજરાતી](README.gu.md) · [ಕನ್ನಡ](README.kn.md) · [മലയാളം](README.ml.md) · [ਪੰਜਾਬੀ](README.pa.md) · [ଓଡ଼ିଆ](README.or.md) · [অসমীয়া](README.as.md) · [اردو](README.ur.md) · [संस्कृतम्](README.sa.md) · [नेपाली](README.ne.md) · कोंकणी · [मैथिली](README.mai.md)
+
+**~२० स्वतंत्र WordPress प्लगइन्स, दरेक एका वेगळ्या सार्वजनीक डेटा स्त्रोताखातीर, एकठांय मेळून एक अशी साइट चलयतात जी संपूर्ण भारतांत लाइव्ह मंडी दर, इंधनाचे दर, हवेची गुणवत्ता, हवामान इशारे, भुंयकांप आनी क्रिकेट स्कोर ट्रॅक करता. हाच्या फाटल्यान आशिल्लें सरकारी API काम करचें बंद केल्यार सुद्धां, हें बरें डेटा दिवप चालू दवरता.**
+
+**लाइव्ह साइट:** https://indiarealtime.com
+
+## वेवसायट स्क्रीनशॉट
+
+| वेब व्यू | मोबायल व्यू |
+|---|---|
+| ![IndiaRealTime website web view](assets/website-webview.png) | ![IndiaRealTime website mobile view](assets/website-mobile.png) |
+
+---
+
+## 📱 IndiaRealTime विशीं
+
+### समस्या कितें आसा
+
+डेटा आदींच अस्तित्वांत आसा आनी बरोच सार्वजनीक आसा. तो फकत खूब वेगवेगळ्या सरकारी आनी PSU पोर्टलांनी विखुरिल्लो आसा, दरेकाची आपली स्वतःची फॉर्मॅट, अपडेट जावपाची वेळ, आनी (चडशें) विस्वासाचे समस्ये.
+
+पंजाबांत मंडी दर पळोवपी शेतकऱ्याक कळून घेवचें पडटा की Agmarknet म्हणून कितेंय आसा. भायर वचप सुरक्षीत आसा वा ना हें जाणून घेवपी कोणाकूय कळून घेवचें पडटा की CPCB वेगळ्या वेवसायटीर, वेगळ्या फॉर्मॅटांत AQI उजवाडायता. इंधनाचे दर रोज बदलतात आनी राज्याप्रमाण वेगळे आसतात (वेगवेगळे VAT दर), पूण दरेक तेल कंपनी फकत आपले संख्या, वेगवेगळे, फकत जंय सेवा दिता त्या शारांखातीरच उजवाडायता.
+
+हाकां नवें डेटा एकठांय करपाची गरज ना. फकत कोणेंतरी आदींच सार्वजनीक आशिल्लें हाडून, फॉर्मॅट सामान्य करून, मंडी दर, इंधनाचे दर, AQI, हवामान इशारे वगैरे एकाच सुवातेर दवरचे, जेणेकरून एक व्यक्ती पांच वेगवेगळ्या सरकारी साइटांचे पांच टॅब उगडपाऐवजी थोड्या सेकंदांनी पळोवं शकता. **हीच उणीव IndiaRealTime भरून काडटा.**
+
+### खऱ्या वापरप्यांच्यो कथा
+
+**🌾 राजेश - पंजाबांतलो शेतकरी**
+> "हांव APMC लुधियानांत गंव विकतां. दरेक सकाळी बऱ्या दरान सौदो करपाक मात्शें लागी आशिल्ल्या बाजारांतले दर पळोवपाक म्हाका ३ वेगळे वेवसायट पळोवचे पडटाले. आतां बाजारांत वचचे पयली हांव १० सेकंदांनी indiarealtime पळयतां."
+
+**🚖 प्रिया - बेंगळुरांतली ऑटो चालक**
+> "इंधनाचे दर रोज बदलतात आनी म्हज्या कमायेचेर परिणाम करतात. पयली हांव वेगवेगळ्या शारांतल्या मित्रांक फोन करून दर जाणून घेतालीं. आतां हांव एकाच अॅपांत बेंगळुरभर पेट्रोल/डिझेलचे दर पळोवन म्हजी वाट थारायतां."
+
+**👨‍👩‍👧 अमित - दिल्लींतलो पालक**
+> "म्हज्या भुरग्यांक भायर खेळपाक धाडचे पयली म्हाका AQI पळोवचें पडटा. पयली हांव ५ वेगळे स्त्रोत गुगल करतालों - Agmarknet, CPCB, हवामान साइटी - सगळे वेगवेगळ्या फॉर्मॅटांत. आतां एका क्लिकांत कळटा भायर वचप सुरक्षीत आसा वा ना."
+
+### आमी कितें ट्रॅक करतात
+
+| वर्ग | उदाहरणां |
+|---|---|
+| दर | मंडी (कृषी उत्पादन), इंधन आनी LPG राज्य/शार प्रमाण, मोलादीक धातू, चलन बदल, म्युच्युअल फंड NAV, FD दर, टोल दर |
+| पर्यावरण | हवेची गुणवत्ता (AQI, CPCB बॅंड), हवामान इशारे, भुंयकांप इशारे |
+| नागरीक / वेळ | बॅंक सुटयो, पिनकोड लुकअप, टायमझोन बदल |
+| संस्कृताय | पंचांग आनी मुहूर्त वेळ, व्रत कॅलेंडर, राशिफळ |
+| खेळ | लाइव्ह क्रिकेट स्कोर |
+
+मूळ डेटा जंय परवानगी दिता थंय कव्हरेज शार/राज्य पातळेर सूक्ष्म आसा. देखीक, इंधनाचे दर राष्ट्रीय सरासरी न्हय, दरेक शाराप्रमाण ट्रॅक करतात.
+
+हाच्या फाटल्यान आशिल्ल्या फुकट भारतीय डेटा API ची पूर्ण वळेरी, साइट अजून वापरना अशा सरकारी API सयत, [API/](API/) त आसा.
+
+### भेट दिवपी लोकांखातीर हें कशें काम करता
+
+- **सुवातेप्रमाण ब्राउझ करात**: URL `/state/city/category/` अशा नमुन्यान आसतात (देखीक एक राज्य पान, उपरांत एका शारांत वचप, उपरांत इंधन दर वा AQI सारक्या खाशेल्या वर्गांत). चडशे वर्ग राष्ट्रीय आढावो आनी शार-खाशेली तपशील पान दोनूय रुपांत आसतात.
+- **दरांची तुळा करात**: एक दर-तुळा दृश्य एक वस्त वा इंधन प्रकार शारां/राज्यांनी एकामेकालागीं दाखयता, दरेक शाराचें पान वेगळें उगडपाऐवजी.
+- **कॅल्क्युलेटर**: एक धातू कॅल्क्युलेटर फकत दर-ग्रॅम आंकडो दाखोवपाऐवजी लाइव्ह सोनें/रुपें दर वजन आनी शुद्धताप्रमाण बदलता.
+- **शेअर कार्ड**: डेटा पानां सामाजीक प्लॅटफॉर्मांखातीर योग्य आकाराचें शेअर करपासारकें प्रतिमा कार्ड (दर, तारीक, स्त्रोत) तयार करतात, जेणेकरून स्क्रीनशॉटा बगर एक गजाल शेअर करूं येता.
+- **लेखक हब**: दरेक लेखाक एका खऱ्या लेखकाक, ताच्या प्रोफायल पानासयत, श्रेय दितात, अज्ञात बायलायन न्हय. `/authors/` सगळ्यांची वळेरी करता, `/author/<name>/` ताचें उजवाडिल्लें काम दाखयता.
+
+---
+
+## 🏗️ वेब अॅप्लिकेशनाची आर्किटेक्चर
+
+भारतांत चडशे "लाइव्ह डेटा" साइटी वा दिसाक एकदां स्क्रॅप करून ताका रियल-टायम म्हणटात, न्हयतर तें सांबाळपाक शक्य ना तोपासर एका पेज-बिल्डर थीमीर डझनांनी असंबंधीत विजेट जोडीत रावतात. IndiaRealTime सुमार १५ वेगवेगळ्या सार्वजनीक डेटा स्त्रोतांतल्यान (सरकारी API, एक्सचेंज, हवामान आनी भुंयकांप फीड) डेटा घेता आनी दरेकाक एका मोनोलिथाऐवजी आपल्या ल्हान, तपासपासारक्या एककांत बदलता.
+
+तुमी एक डेटा-एकठांयकरण साइट, प्लगइन-आधारीत आर्किटेक्चर, वा "अपस्ट्रीम API निमाणें फटीत" हें एक खरें डिझायन मर्यादा आशिल्लें कितेंय तयार करीत आसात जाल्यार, हें तुमच्याखातीरच बरयल्लें आसा.
+
+### तांत्रीक चित्र
+
+```
+Public data sources (govt APIs, exchanges, weather/seismic feeds, ~15 total)
+        │
+        ▼
+One WordPress plugin per source  ──►  WP-Cron fetch on its own schedule
+  (fetch → validate → normalize)       (e.g. every 6h for commodities/AQI,
+        │                               daily for fuel prices)
+        ▼
+WP transient cache (MySQL-backed)  ◄── on fetch failure, keep serving the
+        │                               last good cached value instead of
+        ▼                               erroring or showing nothing
+Custom theme templates (PHP)
+  render location/category pages
+        │
+        ▼
+irt-dataset-schema → schema.org JSON-LD  +  irt-api-health-monitor watches
+  (machine-readable structured data)       all fetchers from one dashboard
+        │
+        ▼
+IndexNow ping on update → search engines re-crawl fresh data within minutes,
+  not on their own schedule
+```
+
+### डिझायन तत्वगिन्यान
+
+**दरेक डेटा स्त्रोत एक पूर्ण स्वतंत्र प्लगइन आसा**, वांटिल्ली इंजेक्शन पायपलायन न्हय. एका प्लगइनाची आपली फेच वेळापत्रक, कॅश, आनी अपेश हाताळप आसा. जर खंयचेंय सरकारी API आपलें प्रतिसाद फॉर्मॅट बदलता वा बंद जाता, तर बरोबर एक प्लगइनूच मोडटा. उरिल्ले ~१९ सेवा दिवप चालू दवरतात. एवढे स्वतंत्र चलपी वांटे आशिल्ल्यान, दरेक प्लगइनाचे लॉग हाताभरीत तपासपाऐवजी सगळ्यांक एका सुवातेवयल्यान पळोवपी यंत्रणा गरजेची आशिल्ल्यान `irt-api-health-monitor` आसा.
+
+### स्टॅक
+
+- **WordPress** (कस्टम थीम, पेज बिल्डर ना): PHP टेम्प्लेट, व्हॅनिला JS/CSS
+- **~२० कस्टम प्लगइन्स**, दरेक डेटा स्त्रोताखातीर एक, दरेकाचो आपलो फेच/कॅश स्तर
+- साठवणुकेखातीर आनी ट्रांझियंट कॅशिंगाखातीर **MySQL**; लोकल डेव्हाखातीर Docker Compose
+- एका समर्पीत प्लगइनामार्फत (`irt-dataset-schema`) Schema.org रचनाबद्ध डेटा
+- डेटा अपडेटाचेर जवळजवळ तत्काळ सर्च इंजिन इंडेक्सिंगाखातीर IndexNow एकीकरण
+
+---
+
+## 👨‍💻 डेव्हलपर हाचो वापर कशें करूं येता
+
+तुमी तुमच्या अॅपांत भारतीय बाजार डेटा, लाइव्ह प्रायसिंग, हवामान, वा AQI गरजेचे फीचर तयार करीत आसात जाल्यार - तुमी IndiaRealTime Python पॅकेज, कमांड-लायन साधन, वा REST API म्हणून वापरूं शकतात.
+
+### इंस्टॉलेशन
+
+**Python SDK (शिफारशीत)**
+```bash
+pip install indiarealtime
+```
+
+**📦 PyPI वयर पळयात:** https://pypi.org/project/indiarealtime/
+
+**स्त्रोतांतल्यान**
+```bash
+git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
+cd indiarealtime-com
+pip install -e .
+```
+
+### खरे एकीकरण उदाहरणां
+
+#### उदाहरण १: मंडी दर पळोवपी शेतकरी (CLI)
+```bash
+# Get wheat prices in Punjab
+$ indiarealtime mandi --commodity wheat --state Punjab
+
+Commodity  Market           State         City      Price (₹)  Unit
+wheat      APMC Ludhiana    Punjab        Ludhiana  2450       Quintal
+wheat      APMC Amritsar    Punjab        Amritsar  2420       Quintal
+```
+
+#### उदाहरण २: दर इशारा बॉट तयार करपी स्टार्टअप (Python)
+```python
+from indiarealtime import IndiaRealTime
+
+irt = IndiaRealTime()
+
+# Get current wheat prices
+prices = irt.mandi_prices(commodity="wheat", state="Punjab", limit=5)
+
+for price in prices:
+    print(f"📊 {price.market}: ₹{price.price}/{price.unit}")
+    
+    # Alert if price drops below ₹2400
+    if price.price < 2400:
+        send_sms_alert(f"Wheat at {price.market} is ₹{price.price}!")
+```
+
+#### उदाहरण ३: इंधन दर तपासपी डिलिव्हरी अॅप (REST API)
+```javascript
+// Fetch fuel prices for driver earnings calculation
+fetch('http://localhost:5000/v1/fuel/prices?state=Maharashtra&type=diesel')
+  .then(r => r.json())
+  .then(data => {
+    data.results.forEach(price => {
+      console.log(`Diesel in ${price.city}: ₹${price.price}/L`);
+    });
+  });
+```
+
+#### उदाहरण ४: AQI स्क्रॅप करपी न्यूज वेवसायट (Python)
+```python
+from indiarealtime import IndiaRealTime
+import requests
+
+irt = IndiaRealTime()
+aqi = irt.air_quality(city="Delhi")
+
+if aqi[0].aqi > 300:
+    # Post alert headline
+    headline = f"🚨 Air Quality SEVERE in {aqi[0].city}: AQI {aqi[0].aqi}"
+    post_to_website(headline)
+```
+
+#### उदाहरण ५: दर दाखोवपी फायनान्स डॅशबोर्ड (React)
+```jsx
+import { useState, useEffect } from 'react';
+
+function CurrencyRates() {
+  const [rates, setRates] = useState({});
+  
+  useEffect(() => {
+    fetch('/api/v1/finance/currency?base=INR&symbols=USD,EUR,GBP')
+      .then(r => r.json())
+      .then(d => setRates(d.rates));
+  }, []);
+  
+  return (
+    <div>
+      <h2>INR Exchange Rates</h2>
+      <p>1 INR = ${rates.USD?.toFixed(4)} USD</p>
+      <p>1 INR = €{rates.EUR?.toFixed(4)} EUR</p>
+    </div>
+  );
+}
+```
+
+### लोकल डेव्हलपमेंट सेटअप (Docker)
+```bash
+git clone https://github.com/padmarajnidagundi/indiarealtime-com.git
+cd indiarealtime-com
+
+# Start all services
+docker-compose up
+
+# WordPress at http://localhost:8080
+# API Server at http://localhost:5000
+# Monitoring at http://localhost:3000
+```
+
+### स्वताच वापरून पळयात
+
+`scripts/fetch-pincode.js` हो साइटीचे प्लगइन वापरतात त्या फेच-आनी-नॉर्मलायझ नमुन्याचो एक ल्हान स्वतंत्र उदाहरण, वयल्या वळेरेंतल्यान की गरज नाशिल्ल्या एका API वयर लागू केल्लो:
+
+```
+node scripts/fetch-pincode.js 560001
+```
+
+### आनीक उदाहरणां
+- [ऑटो-डॉक्स आशिल्लो FastAPI सर्व्हर](examples/fastapi_server.py)
+- [दर इशाऱ्यांखातीर Telegram बॉट](examples/telegram_bot.py)
+- [Google Sheets ऑटो-अपडेट](examples/google_sheets_integration.py)
+- [Next.js डॅशबोर्ड](examples/nextjs_mandi_dashboard.tsx)
+
+पूर्ण सेटअप सुचोवण्यांखातीर [examples/README.md](examples/) पळयात.
+
+---
+
+## ⚠️ तांत्रीक आव्हानां
+
+### इंजिनियरिंग निर्णय आनी शिकवण
+
+ह्या दरेक आव्हानांनी आपलें पान मेळपा इतलें व्हड जालें:
+
+- **[जाणून-बुजून जुनो डेटा दिवप](notes/stale-cache-fallback.md)**: सरकारी आनी एक्सचेंज API विस्वासाचे न्हय, तरी साइट विस्वासाची दिसची पडटा. एक अपस्ट्रीम API अपेशी जाता तेन्ना, आमी चूक दाखोवपाऐवजी वा कांयच न दाखोवपाऐवजी निमाणें बरें कॅश केल्लें मोल दाखयतात.
+- **[प्रवेशयोग्यताय आनी रंग, दोनूय म्हत्वाचे](notes/cvd-safe-aqi-colors.md)**: डेटा सगळ्यांखातीर प्रवेशयोग्य उरचो म्हणून दरेक अर्थपूर्ण रंग WCAG कॉन्ट्रास्ट आनी रंग-नदर-उणेपण सिम्युलेशनाआड तपासतात.
+- **[दोन भाशांनी एकसारकें हॅश मेळोवप](notes/cross-language-hash-parity.md)**: PHP आनी JavaScript इंटिजर ओव्हरफ्लोचेर सहमत नात, तरी लेखक श्रेय तांच्या सहमतायेचेरूच अवलंबून आसा.
+- **[दरेक राज्याखातीर रिरायट-रूल regex बगर सुवात रावटिंग](notes/location-routing-without-regex.md)**: दरेक वाठारांखातीर एक रिरायट नेम करपाऐवजी दरेक राज्य आनी शार पानाखातीर एकूच रावटिंग वाट.
+- **[~२० प्लगइन एक सांबाळणी पण, फुकट न्हय](notes/plugin-per-source-tradeoff.md)**: चूक वेगळावपाचें मोल म्हणल्यार सगळें सुसंगत दवरपाक चड वाठार.
+
+---
+
+## 🚀 फुडें कितें
+
+- ऐतिहासीक दर ट्रॅकिंग सद्या फकत इंधन आनी AQI खातीर आसा, मंडी/वस्त दरांखातीर अजून ना. ताका थंय मेरेन विस्तारप हो फुडलो खरो डेटा फांटो, जो भरपाचो आसा.
+- स्त्रोत परवानगी दितात तशी चड सूक्ष्म शार कव्हरेज.
+- `STYLE-GUIDE.md` त आशिल्ली प्रवेशयोग्यताय तपासणी रंग कॉन्ट्रास्टाभायर पूर्ण किबोर्ड/स्क्रीन-रीडर तपासणीमेरेन विस्तारप.
+
+---
+
+## 👋 लेखका विशीं
+
+ही रिपॉझिटरी प्रकल्पाचो एक आढावो आसा, साइटीचो स्त्रोत न्हय. WordPress कोडबेस सद्याक बंद आसा. पूण, [API वळेरी](API/) आनी `scripts/` फोल्डर PR खातीर उगडे आसात - मेळनाशिल्ले API, सुधारणा, फेचाची आनीक उदाहरणां, सगळ्यांचें स्वागत.
+
+तुमी वयल्या खंयच्याय समस्येचें एक स्वरूप सोडयलां जाल्यार (stale-cache fallback वेव्यूह, plugin-per-source आर्किटेक्चर, CVD-safe रंग यंत्रणा, cross-language hash parity), वा तुमी आतां त्याच भितींसंगीं झगडटात जाल्यार, एक [चर्चा](https://github.com/padmarajnidagundi/indiarealtime-com/issues) उगडात. म्हाका खरेंच नोट जुळोवपाचें आसा.
+
+**योगदानाचें स्वागत:** नवे डेटा स्त्रोत प्लगइन म्हणून कशे जोडचे हाचेखातीर [CONTRIBUTING.md](CONTRIBUTING.md) पळयात, वा मजतीच्या हेर वाटांखातीर [CONTRIBUTORS_GUIDE.md](CONTRIBUTORS_GUIDE.md) पळयात.
+
+तुमकां प्रस्न वा विचार आसात जाल्यार, [GitHub Issues](https://github.com/padmarajnidagundi/indiarealtime-com/issues) वा ईमेलामार्फत संपर्क करात.
+
+<!-- TODO: contact / social links -->
