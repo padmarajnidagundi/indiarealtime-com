@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - India Real Time | Live Mandi Prices, Fuel Rates, AQI, Weather Alerts & Cricket Scores
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)
