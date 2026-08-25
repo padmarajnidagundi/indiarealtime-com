@@ -8,6 +8,30 @@
 
 🌐 **Languages:** English · [हिन्दी](README.hi.md) · [বাংলা](README.bn.md) · [मराठी](README.mr.md) · [తెలుగు](README.te.md) · [தமிழ்](README.ta.md) · [ગુજરાતી](README.gu.md) · [ಕನ್ನಡ](README.kn.md) · [മലയാളം](README.ml.md) · [ਪੰਜਾਬੀ](README.pa.md) · [ଓଡ଼ିଆ](README.or.md) · [অসমীয়া](README.as.md) · [اردو](README.ur.md) · [संस्कृतम्](README.sa.md) · [नेपाली](README.ne.md) · [कोंकणी](README.kok.md) · [मैथिली](README.mai.md)
 
+## 🗂️ 19 Verticals, One Real Use Case Each
+
+| Vertical | What You Get | Real India Use Case |
+|---|---|---|
+| Mandi Prices | Live agricultural commodity prices by market, state, and city | A Punjab wheat farmer compares APMC Ludhiana vs. Amritsar rates before deciding where to sell |
+| Fuel Prices | Daily petrol/diesel rates by city and state | A Bengaluru cab driver checks rates across zones to plan the cheapest refuel stop |
+| LPG Prices | Domestic and commercial cylinder rates by city | A household checks this month's cylinder price before booking a refill |
+| Gold Rates | Live gold rates by weight and purity (22K/24K) | A Mumbai family shopping for a wedding checks today's 22K rate before visiting the jeweller |
+| Silver Rates | Live silver rates by weight | An investor tracks silver price swings before buying coins for Dhanteras |
+| Currency Exchange | INR conversion rates against major currencies | An NRI in Dubai checks the INR/AED rate before wiring money home |
+| Mutual Fund NAVs | Daily NAV for tracked mutual fund schemes | A first-time investor in Pune checks their SIP fund's NAV before the monthly top-up |
+| FD Rates | Fixed deposit interest rates by bank | A retiree in Chennai compares FD rates across banks before renewing a deposit |
+| Toll Rates | Highway toll rates by route | A trucker planning a Delhi–Mumbai run checks toll costs to budget the trip |
+| Air Quality Index | AQI and CPCB pollution bands by city | A Delhi parent checks AQI before deciding if the kids can play outside |
+| Weather Alerts | Government weather warnings by state | A Kerala fisherman checks storm alerts before heading out to sea |
+| Earthquake Alerts | Recent seismic activity | A Shillong resident checks recent tremors after feeling one |
+| Bank Holidays | State-wise bank holiday calendar | A Kolkata shop owner checks if the bank is open before sending an urgent payment |
+| Pincode Lookup | Address/post office lookup by pincode | An online seller verifies a buyer's pincode before confirming a shipment |
+| Timezone Conversion | IST to global timezone conversion | A Bengaluru developer scheduling a call with a US client converts IST to EST instantly |
+| Panchang & Muhurat | Daily panchang and auspicious timings | A family checks today's muhurat before fixing a housewarming date |
+| Vrat Calendar | Fasting-day calendar (Ekadashi and others) | A devotee checks the next Ekadashi date to plan their fast |
+| Rashifal | Daily horoscope by zodiac sign | A reader checks today's rashifal before starting the day |
+| Live Cricket Scores | Real-time match scores and updates | A commuter on a train checks the live score without opening a heavier app |
+
 **~20 independent WordPress plugins, one per public data source, feed a single site that tracks live mandi prices, fuel prices, air quality, weather alerts, earthquakes, and cricket scores across India. It keeps serving good data even when the government API behind it doesn't.**
 
 **Live site:** https://indiarealtime.com
