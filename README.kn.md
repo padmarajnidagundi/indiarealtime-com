@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - ಇಂಡಿಯಾ ರಿಯಲ್ ಟೈಮ್ | ಲೈವ್ ಮಂಡಿ ಬೆಲೆಗಳು, ಇಂಧನ ದರಗಳು, AQI, ಹವಾಮಾನ ಎಚ್ಚರಿಕೆಗಳು & ಕ್ರಿಕೆಟ್ ಸ್ಕೋರ್‌ಗಳು
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

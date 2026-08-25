@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - இந்தியா ரியல் டைம் | நேரடி மண்டி விலைகள், எரிபொருள் விகிதங்கள், AQI, வானிலை எச்சரிக்கைகள் & கிரிக்கெட் ஸ்கோர்கள்
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

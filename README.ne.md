@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - इन्डिया रियल टाइम | लाइभ मण्डी मूल्य, इन्धन दर, AQI, मौसम चेतावनी र क्रिकेट स्कोर
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

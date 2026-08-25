@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - ইন্ডিয়া রিয়েল টাইম | লাইভ মান্ডি দর, জ্বালানির হার, AQI, আবহাওয়া সতর্কতা ও ক্রিকেট স্কোর
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

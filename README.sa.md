@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - भारतस्य सजीव-कालः | सजीव-मण्डी-मूल्यानि, इन्धन-दराः, AQI, मौसम-चेतावन्यः, क्रिकेट्-गुणाङ्काश्च
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

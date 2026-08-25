@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - ଇଣ୍ଡିଆ ରିଅଲ୍ ଟାଇମ୍ | ଲାଇଭ୍ ମଣ୍ଡି ଦର, ଇନ୍ଧନ ଦର, AQI, ପାଣିପାଗ ଚେତାବନୀ ଏବଂ କ୍ରିକେଟ୍ ସ୍କୋର
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

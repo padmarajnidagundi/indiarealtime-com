@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - ਇੰਡੀਆ ਰੀਅਲ ਟਾਈਮ | ਲਾਈਵ ਮੰਡੀ ਭਾਅ, ਬਾਲਣ ਦਰਾਂ, AQI, ਮੌਸਮ ਚੇਤਾਵਨੀਆਂ ਅਤੇ ਕ੍ਰਿਕਟ ਸਕੋਰ
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

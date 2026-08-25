@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - انڈیا ریئل ٹائم | لائیو منڈی بھاؤ، ایندھن کی شرحیں، AQI، موسمی وارننگز اور کرکٹ اسکور
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

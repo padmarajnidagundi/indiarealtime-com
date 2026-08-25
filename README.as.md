@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - ইণ্ডিয়া ৰিয়েল টাইম | লাইভ মণ্ডি দাম, জ্বালানী হাৰ, AQI, বতৰৰ সতৰ্কবাণী আৰু ক্ৰিকেট স্ক‌ʼৰ
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

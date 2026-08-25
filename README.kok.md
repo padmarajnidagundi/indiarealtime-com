@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - इंडिया रियल टायम | लाइव्ह मंडी दर, इंधन दर, AQI, हवामान इशारे आनी क्रिकेट स्कोर
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)

@@ -1,4 +1,4 @@
-# IndiaRealTime
+# IndiaRealTime - ഇന്ത്യ റിയൽ ടൈം | തത്സമയ മണ്ടി വിലകൾ, ഇന്ധന നിരക്കുകൾ, AQI, കാലാവസ്ഥാ മുന്നറിയിപ്പുകൾ & ക്രിക്കറ്റ് സ്കോറുകൾ
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)
