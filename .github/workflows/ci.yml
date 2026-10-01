@@ -89,7 +89,11 @@ jobs:
       
       - name: Run integration tests
         run: |
-          pytest tests/integration/ -v
+          if [ -d tests/integration ] && find tests/integration -type f -name 'test*.py' | grep -q .; then
+            pytest tests/integration/ -v
+          else
+            echo "No integration tests found; skipping."
+          fi
         env:
           DATABASE_HOST: localhost
           DATABASE_USER: test
@@ -98,16 +102,19 @@ jobs:
 
   security-scan:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
     
     steps:
       - uses: actions/checkout@v3
       
       - name: Run Bandit security scan
         run: |
-          pip install bandit
-          bandit -r indiarealtime/ -f json -o bandit-report.json || true
+          pip install bandit bandit-sarif-formatter
+          bandit -r indiarealtime/ -f sarif -o bandit-report.sarif || true
       
       - name: Upload security scan
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: bandit-report.json
+          sarif_file: bandit-report.sarif
