@@ -111,10 +111,10 @@ jobs:
       
       - name: Run Bandit security scan
         run: |
-          pip install bandit bandit-sarif-formatter
+          pip install "bandit>=1.8.0,<2.0.0"
           bandit -r indiarealtime/ -f sarif -o bandit-report.sarif || true
       
       - name: Upload security scan
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v2.1.0
         with:
           sarif_file: bandit-report.sarif
