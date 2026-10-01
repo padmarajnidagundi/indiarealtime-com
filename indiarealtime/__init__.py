@@ -8,7 +8,7 @@ Example:
     >>> irt = IndiaRealTime()
     >>> prices = irt.mandi_prices(commodity="wheat", state="Punjab")
     >>> print(prices)
-    
+
 """
 
 from .client import IndiaRealTime

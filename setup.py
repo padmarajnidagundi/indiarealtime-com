@@ -36,6 +36,8 @@ setup(
         "requests>=2.28.0",
         "python-dateutil>=2.8.2",
         "pytz>=2022.7",
+        "click>=8.1.0",
+        "tabulate>=0.9.0",
     ],
     extras_require={
         "dev": [

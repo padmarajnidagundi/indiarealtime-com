@@ -4,12 +4,12 @@ Data models for IndiaRealTime API responses
 
 from dataclasses import dataclass
 from typing import Optional
-from datetime import datetime
 
 
 @dataclass
 class MandiPrice:
     """Mandi commodity price data"""
+
     commodity: str
     market: str
     state: str
@@ -19,7 +19,7 @@ class MandiPrice:
     unit: str = "Quintal"
     updated_at: Optional[str] = None
     source: str = "Agmarknet"
-    
+
     def __str__(self) -> str:
         return f"{self.commodity} @ {self.market}: ₹{self.price}/{self.unit}"
 
@@ -27,6 +27,7 @@ class MandiPrice:
 @dataclass
 class FuelPrice:
     """Fuel price by location"""
+
     fuel_type: str  # petrol, diesel, lpg
     state: str
     city: str
@@ -35,7 +36,7 @@ class FuelPrice:
     unit: str = "Liter"
     updated_at: Optional[str] = None
     source: str = "IOCL/BPCL/HPCL"
-    
+
     def __str__(self) -> str:
         return f"{self.fuel_type.upper()} in {self.city}: ₹{self.price}/{self.unit}"
 
@@ -43,6 +44,7 @@ class FuelPrice:
 @dataclass
 class AirQuality:
     """Air quality index data"""
+
     city: str
     state: str
     aqi: int  # 0-500
@@ -55,7 +57,7 @@ class AirQuality:
     o3: Optional[float] = None
     updated_at: Optional[str] = None
     source: str = "CPCB"
-    
+
     def __str__(self) -> str:
         return f"{self.city}: AQI {self.aqi} ({self.aqi_category})"
 
@@ -63,6 +65,7 @@ class AirQuality:
 @dataclass
 class Weather:
     """Weather alert data"""
+
     state: str
     alert_type: str  # Warning, Watch, Advisory
     description: str
@@ -70,7 +73,7 @@ class Weather:
     valid_until: Optional[str] = None
     severity: str = "Moderate"  # Low, Moderate, High, Severe
     source: str = "IMD"
-    
+
     def __str__(self) -> str:
         return f"{self.alert_type}: {self.description}"
 
@@ -78,6 +81,7 @@ class Weather:
 @dataclass
 class Earthquake:
     """Earthquake data"""
+
     magnitude: float
     latitude: float
     longitude: float
@@ -87,7 +91,7 @@ class Earthquake:
     timestamp: str
     felt_reports: Optional[int] = None
     source: str = "USGS"
-    
+
     def __str__(self) -> str:
         return f"M{self.magnitude} {self.location} at {self.depth}km"
 
@@ -95,6 +99,7 @@ class Earthquake:
 @dataclass
 class CricketScore:
     """Live cricket score"""
+
     match_id: str
     teams: str  # e.g., "India vs Australia"
     format: str  # Test, ODI, T20
@@ -104,7 +109,7 @@ class CricketScore:
     current_over: Optional[str] = None
     updated_at: Optional[str] = None
     source: str = "CricAPI"
-    
+
     def __str__(self) -> str:
         return f"{self.teams} - {self.score_team1}"
 
@@ -112,12 +117,13 @@ class CricketScore:
 @dataclass
 class CurrencyRate:
     """Currency exchange rate"""
+
     base: str  # e.g., "INR"
     target: str  # e.g., "USD"
     rate: float
     updated_at: Optional[str] = None
     source: str = "RBI"
-    
+
     def __str__(self) -> str:
         return f"1 {self.base} = {self.rate:.2f} {self.target}"
 
@@ -125,6 +131,7 @@ class CurrencyRate:
 @dataclass
 class GoldPrice:
     """Gold/precious metal price"""
+
     metal: str  # gold, silver, etc.
     purity: str  # 24K, 22K, etc.
     price_per_gram: float
@@ -132,7 +139,7 @@ class GoldPrice:
     city: Optional[str] = None
     updated_at: Optional[str] = None
     source: str = "IBJA"
-    
+
     def __str__(self) -> str:
         return f"{self.metal.upper()} ({self.purity}): ₹{self.price_per_gram}/g"
 
@@ -140,11 +147,12 @@ class GoldPrice:
 @dataclass
 class ApiHealth:
     """API health status"""
+
     service: str
     status: str  # operational, degraded, down
     last_check: str
     uptime_percentage: float
     response_time_ms: int
-    
+
     def __str__(self) -> str:
         return f"{self.service}: {self.status} ({self.uptime_percentage:.1f}% uptime)"
