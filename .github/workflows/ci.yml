@@ -115,6 +115,6 @@ jobs:
           bandit -r indiarealtime/ -f sarif -o bandit-report.sarif || true
       
       - name: Upload security scan
-        uses: github/codeql-action/upload-sarif@v2.1.0
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: bandit-report.sarif
