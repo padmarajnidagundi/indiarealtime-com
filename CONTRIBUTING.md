@@ -133,7 +133,7 @@ Data sources are handled independently in production so one failing upstream sho
 - Clearly separate fresh vs cached responses in examples
 
 ### Schema
-All normalized data should align with [schema.org/Dataset](https://schema.org/Dataset) semantics and use JSON-LD for machine-readable output.
+Use [schema.org](https://schema.org) JSON-LD for machine-readable output. For most source entries, align primarily with [schema.org/Dataset](https://schema.org/Dataset), and choose additional types when a data category is better represented by another schema.
 
 ### Monitoring
 If you add new fetch scripts or API integrations, document health signals (status checks, expected response shape, stale fallback behavior) so failures are easy to detect and debug.
