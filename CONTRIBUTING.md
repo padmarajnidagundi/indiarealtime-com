@@ -153,7 +153,7 @@ When adding a source or integration, update:
 
 ## Recognition
 
-- All contributors are recognized via repository history and contributor docs
+- All contributors are recognized via repository history and contributor pages
 - Major contributions may be highlighted in project updates
 - 10+ merged PRs → maintainer role
 
