@@ -45,13 +45,13 @@ Help improve our docs?
 ### 💻 Code Contributions
 
 #### Add a New Data Source (Plugin)
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed plugin development guide.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for repository contribution scope and workflow.
 
 Quick checklist:
 - [ ] Research API and document in `API/`
-- [ ] Create plugin following pattern
+- [ ] Add SDK method and/or example integration where relevant
 - [ ] Add tests (≥80% coverage)
-- [ ] Test locally with Docker
+- [ ] Test locally (SDK tests and affected examples)
 - [ ] Update README
 - [ ] Submit PR
 
@@ -127,12 +127,12 @@ Fixes #123
 2. Make requested changes by pushing to your branch
 3. Respond to review feedback
 4. Once approved, your PR will be merged
-5. Your name will be added to CONTRIBUTORS.md
+5. Your contribution will be reflected in repository history and contributor views
 
 ## Recognition
 
 Contributors get:
-- Recognition in [CONTRIBUTORS.md](CONTRIBUTORS.md)
+- Recognition in repository history and contributor pages
 - Attribution in commit messages
 - Feature showcase in blog posts (for major contributions)
 - Maintainer status after 5 merged PRs
@@ -140,8 +140,8 @@ Contributors get:
 ## Questions?
 
 - **Documentation**: Check [README.md](README.md) and [notes/](notes/)
-- **Architecture**: See [Architecture](README.md#architecture)
-- **Plugin development**: See [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Architecture**: See [Architecture](README.md#-architecture-of-the-web-application)
+- **Contribution workflow**: See [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Ask in Discussions**: [GitHub Discussions](https://github.com/padmarajnidagundi/indiarealtime-com/discussions)
 
 ---

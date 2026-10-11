@@ -8,6 +8,19 @@
 
 🌐 **Languages:** English · [हिन्दी](README.hi.md) · [বাংলা](README.bn.md) · [मराठी](README.mr.md) · [తెలుగు](README.te.md) · [தமிழ்](README.ta.md) · [ગુજરાતી](README.gu.md) · [ಕನ್ನಡ](README.kn.md) · [മലയാളം](README.ml.md) · [ਪੰਜਾਬੀ](README.pa.md) · [ଓଡ଼ିଆ](README.or.md) · [অসমীয়া](README.as.md) · [اردو](README.ur.md) · [संस्कृतम्](README.sa.md) · [नेपाली](README.ne.md) · [कोंकणी](README.kok.md) · [मैथिली](README.mai.md)
 
+## 🔎 Developer Visibility (What You Can Build Here)
+
+This repository is intentionally focused on public integration assets and developer tooling around IndiaRealTime.
+
+- **Python SDK + CLI**: [`indiarealtime/`](indiarealtime/) + [`tests/`](tests/)
+- **Public API source catalog**: [`API/`](API/)
+- **Integration examples**: [`examples/`](examples/)
+- **Standalone fetch patterns**: [`scripts/`](scripts/)
+- **Architecture decisions and trade-offs**: [`notes/`](notes/)
+- **Setup and publishing docs**: [`docs/`](docs/)
+
+The production WordPress codebase is private for now, but the directories above are fully open for contributions.
+
 ## 🗂️ 19 Verticals, One Real Use Case Each
 
 | Vertical | What You Get | Real India Use Case |
