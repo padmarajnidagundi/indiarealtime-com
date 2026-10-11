@@ -1,83 +1,66 @@
 # Contributing to IndiaRealTime
 
-Thank you for wanting to help! This guide covers how to contribute — whether it's adding a new data source, improving existing plugins, fixing bugs, or improving documentation.
+Thank you for wanting to help! This guide covers how to contribute to the open parts of this repository.
+
+## What Is Open in This Repository
+
+IndiaRealTime's production WordPress codebase is private right now. Contributions are welcome in these public areas:
+
+- `indiarealtime/` - Python SDK + CLI
+- `tests/` - SDK and CLI test coverage
+- `API/` - Public India API catalog and source notes
+- `examples/` - Integration examples (FastAPI, bots, dashboards)
+- `scripts/` - Standalone fetch/normalize examples
+- `docs/` and `notes/` - Technical documentation and engineering decisions
 
 ## Quick Start
 
-### Adding a New Data Source / Plugin
+### Adding a New Data Source
 
 1. **Research the API**
    - Find the endpoint, authentication method, and response format
    - Check rate limits and terms of service
    - Document findings in `API/india-free-apis.md` or `API/india-paid-apis.md`
 
-2. **Create the Plugin**
-   ```
-   wp-content/plugins/irt-<data-source-name>/
-   ├── irt-<data-source-name>.php
-   ├── includes/
-   │   ├── fetcher.php        # API call logic
-   │   ├── transformer.php    # Normalize response to schema
-   │   └── cache.php          # Cache handling
-   ├── tests/
-   │   └── test-fetcher.php   # Unit tests
-   └── readme.txt
-   ```
+2. **Contribute in this repo**
+   - Add/update API documentation in `API/`
+   - Add SDK support in `indiarealtime/` when applicable
+   - Add or update examples in `examples/`
+   - Add tests in `tests/`
 
-3. **Follow the Fetcher Pattern**
-   ```php
-   // includes/fetcher.php
-   class IRT_<DataSource>_Fetcher {
-       public function fetch() {
-           // 1. Call external API
-           // 2. Handle errors gracefully
-           // 3. Return raw data
-       }
-   }
-   ```
+3. **Follow the fetch → validate → normalize pattern**
+   - Fetch source data with clear error handling
+   - Validate required fields before exposing data to users
+   - Normalize output shape so SDK/examples stay consistent
 
-4. **Implement the Transformer**
-   ```php
-   // includes/transformer.php
-   class IRT_<DataSource>_Transformer {
-       public function transform($raw_data) {
-           // Normalize to irt-dataset-schema
-           // Return structured data for caching
-       }
-   }
-   ```
-
-5. **Add Cache Fallback**
+4. **If your change introduces data fetching, add cache fallback**
    - On fetch failure, serve last cached value
    - Set appropriate cache TTL based on data freshness requirements
    - See [stale-cache-fallback.md](notes/stale-cache-fallback.md)
 
-6. **Test Locally**
+5. **Test Locally**
    ```bash
-   docker-compose up
-   wp-cli plugin activate irt-<data-source-name>
-   wp eval 'do_action("irt_fetch_<data_source>")'
+   pip install -e ".[dev]"
+   pytest tests/ --cov=indiarealtime
    ```
 
-7. **Submit PR with**
-   - Plugin code
-   - Unit tests (≥80% coverage)
-   - Updated `API/` documentation
-   - Screenshot of data rendering
+6. **Submit PR with**
+   - Updated `API/` documentation and/or SDK code
+   - Unit tests for behavior changes
+   - Example updates if user-facing workflows change
 
 ## Code Style
 
-### PHP
-- PSR-12 coding standard
-- Prefix all functions: `irt_`
-- Use WordPress hooks, not direct database queries
-- Add i18n strings with `__()` and `_e()`
+### Python (SDK/CLI)
+- Follow existing project style in `indiarealtime/`
+- Add type hints for new public methods where practical
+- Keep user-facing errors actionable
 
 ### JavaScript
-- ES6+ syntax
-- ESLint config in repo root
-- Use `const` by default
-- Comment complex logic
+- Applies to `examples/` and `scripts/` contributions
+- Use modern, readable ES6+ syntax
+- Prefer `const` by default
+- Keep external API handling and normalization logic explicit
 
 ### Documentation
 - Markdown format
@@ -88,18 +71,15 @@ Thank you for wanting to help! This guide covers how to contribute — whether i
 
 ```bash
 # Run all tests
-npm test
-
-# Run specific plugin tests
-npm test -- --plugin=irt-mandi-prices
+pytest tests/
 
 # Check code coverage
-npm run coverage
+pytest tests/ --cov=indiarealtime
 ```
 
 ## Reporting Issues
 
-Use [GitHub Issues](../../issues) with:
+Use [GitHub Issues](https://github.com/padmarajnidagundi/indiarealtime-com/issues) with:
 - **Clear title**: "AQI API returns 500 on Sundays"
 - **Reproduction steps**: curl command, screenshot, timestamp
 - **Expected vs actual**: "Expected AQI for Delhi, got generic error"
@@ -126,9 +106,10 @@ Label your issue:
 
 3. **Run quality checks**
    ```bash
-   npm run lint
-   npm test
-   npm run coverage
+   black indiarealtime/ tests/
+   flake8 indiarealtime/ tests/
+   mypy indiarealtime/
+   pytest tests/ --cov=indiarealtime
    ```
 
 4. **Push and open PR**
@@ -143,49 +124,37 @@ Label your issue:
 
 ## Architecture Notes
 
-### Plugin Independence
-Each plugin is isolated — if one breaks, others keep working. This means:
-- Don't share databases or caches between plugins
-- Don't depend on load order
-- Each plugin owns its fetch schedule
+### Data Source Independence
+Data sources are handled independently in production so one failing upstream should not break unrelated data flows. Keep that principle when proposing new SDK methods, docs, or example patterns.
 
 ### Caching Strategy
-- `transient` for short-term cache (use WordPress transients API)
-- Serve stale data on fetch failure rather than erroring
-- Set different TTLs based on data freshness: 6h for prices, 24h for historical, etc.
+- Prefer stale-cache fallback semantics in integrations where source reliability is low
+- Document expected refresh cadence per source
+- Clearly separate fresh vs cached responses in examples
 
 ### Schema
-All normalized data follows [irt-dataset-schema](https://schema.org). Use JSON-LD for machine-readable output.
+Use [schema.org](https://schema.org) JSON-LD for machine-readable output. For most source entries, align primarily with [schema.org/Dataset](https://schema.org/Dataset), and choose additional types when a data category is better represented by another schema type (for example: `Dataset` for source tables, `FAQPage` for Q&A explainers, or `NewsArticle` for time-sensitive updates).
 
 ### Monitoring
-Register your plugin with `irt-api-health-monitor` so failures are visible:
-```php
-do_action('irt_register_health_check', [
-    'plugin' => 'irt-<name>',
-    'endpoint' => 'https://api.example.com/data',
-    'check_interval' => '6 hours',
-    'alert_email' => 'your@email.com'
-]);
-```
+If you add new fetch scripts or API integrations, document health signals (status checks, expected response shape, stale fallback behavior) so failures are easy to detect and debug.
 
 ## Documentation to Update
 
-When adding a plugin, update:
+When adding a source or integration, update:
 - `API/india-free-apis.md` or `API/india-paid-apis.md` (add source to table)
 - `README.md` (if new category)
-- Plugin's own `readme.txt` (for WordPress.org listing)
-- Example in `docs/examples/` if major feature
+- Related example in `examples/` if major feature
 
 ## Getting Help
 
-- **Questions?** Open a [GitHub Discussion](../../discussions)
+- **Questions?** Open a [GitHub Discussion](https://github.com/padmarajnidagundi/indiarealtime-com/discussions)
 - **Design feedback?** Comment on issues before coding
 - **Technical help?** Tag maintainers with @padmarajnidagundi
 
 ## Recognition
 
-- All contributors are listed in `CONTRIBUTORS.md`
-- Major plugins get a blog post featuring the contributor
+- All contributors are recognized via repository history and contributor pages
+- Major contributions may be highlighted in project updates
 - 10+ merged PRs → maintainer role
 
 ## Code of Conduct
