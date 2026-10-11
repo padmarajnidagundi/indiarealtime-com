@@ -133,7 +133,7 @@ Data sources are handled independently in production so one failing upstream sho
 - Clearly separate fresh vs cached responses in examples
 
 ### Schema
-All normalized data follows [irt-dataset-schema](https://schema.org). Use JSON-LD for machine-readable output.
+All normalized data should align with [schema.org/Dataset](https://schema.org/Dataset) semantics and use JSON-LD for machine-readable output.
 
 ### Monitoring
 If you add new fetch scripts or API integrations, document health signals (status checks, expected response shape, stale fallback behavior) so failures are easy to detect and debug.
