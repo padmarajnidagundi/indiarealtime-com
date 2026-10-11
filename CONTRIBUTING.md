@@ -33,7 +33,7 @@ IndiaRealTime's production WordPress codebase is private right now. Contribution
    - Validate required fields before exposing data to users
    - Normalize output shape so SDK/examples stay consistent
 
-4. **Add Cache Fallback**
+4. **If your change introduces data fetching, add cache fallback**
    - On fetch failure, serve last cached value
    - Set appropriate cache TTL based on data freshness requirements
    - See [stale-cache-fallback.md](notes/stale-cache-fallback.md)
