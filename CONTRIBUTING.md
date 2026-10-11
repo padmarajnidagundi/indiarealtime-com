@@ -57,10 +57,10 @@ IndiaRealTime's production WordPress codebase is private right now. Contribution
 - Keep user-facing errors actionable
 
 ### JavaScript
-- ES6+ syntax
-- ESLint config in repo root
-- Use `const` by default
-- Comment complex logic
+- Applies to `examples/` and `scripts/` contributions
+- Use modern, readable ES6+ syntax
+- Prefer `const` by default
+- Keep external API handling and normalization logic explicit
 
 ### Documentation
 - Markdown format
