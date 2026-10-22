@@ -1,4 +1,4 @@
-# IndiaRealTime - India Real Time | Live Mandi Prices, Fuel Rates, AQI, Weather Alerts & Cricket Scores
+# IndiaRealTime - Live India Data for Daily Life
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)
@@ -7,6 +7,33 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](API/)
 
 🌐 **Languages:** English · [हिन्दी](README.hi.md) · [বাংলা](README.bn.md) · [मराठी](README.mr.md) · [తెలుగు](README.te.md) · [தமிழ்](README.ta.md) · [ગુજરાતી](README.gu.md) · [ಕನ್ನಡ](README.kn.md) · [മലയാളം](README.ml.md) · [ਪੰਜਾਬੀ](README.pa.md) · [ଓଡ଼ିଆ](README.or.md) · [অসমীয়া](README.as.md) · [اردو](README.ur.md) · [संस्कृतम्](README.sa.md) · [नेपाली](README.ne.md) · [कोंकणी](README.kok.md) · [मैथिली](README.mai.md)
+
+IndiaRealTime brings essential public data into one place so people in India can check prices, conditions, and alerts without jumping across a dozen government websites.
+
+- Check live mandi prices before visiting the market
+- Compare petrol, diesel, and LPG prices by city
+- Track AQI, weather alerts, and earthquake warnings
+- Monitor gold, silver, currency, mutual funds, tolls, and more
+- Use the data through the site, Python SDK, CLI, or public API catalog
+
+## 🚀 Use it now
+
+- Live website: https://indiarealtime.com
+- Python SDK: `pip install indiarealtime`
+- Explore the data source catalog: [API/](API/)
+- Open an issue or start a discussion: [GitHub Issues](https://github.com/padmarajnidagundi/indiarealtime-com/issues)
+
+## Why people use IndiaRealTime
+
+Public data in India is real, but it is spread across dozens of portals with different layouts, update schedules, and reliability. IndiaRealTime normalizes the information and presents it in a way that is fast to scan and easy to trust.
+
+That means:
+
+- Farmers can compare mandi prices in seconds
+- Drivers can budget fuel costs before a trip
+- Families can check AQI before sending kids outside
+- Investors and shoppers can watch prices without chasing multiple sources
+
 
 ## 🔎 Developer Visibility (What You Can Build Here)
 

@@ -8,9 +8,10 @@ setup(
     version="0.1.0",
     author="Padmaraj Nidagundi",
     author_email="padmaraj@indiarealtime.com",
-    description="Python SDK for IndiaRealTime APIs - Live India data aggregator",
+    description="Python SDK for live India public data: mandi prices, fuel rates, AQI, weather, gold, cricket and more",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    keywords="india data, mandi prices, fuel rates, air quality, weather alerts, gold rates, cricket scores, python sdk, api",
     url="https://github.com/padmarajnidagundi/indiarealtime-com",
     project_urls={
         "Bug Tracker": "https://github.com/padmarajnidagundi/indiarealtime-com/issues",
