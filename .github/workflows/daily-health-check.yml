@@ -1,9 +1,6 @@
 name: Test All Data Sources
 
 on:
-  schedule:
-    # Run daily at 9 AM IST (3:30 AM UTC)
-    - cron: '30 3 * * *'
   workflow_dispatch:
 
 jobs:
