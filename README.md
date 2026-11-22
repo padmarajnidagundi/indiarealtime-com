@@ -1,7 +1,11 @@
 # IndiaRealTime - Live India Data for Daily Life
 
+**An open Python SDK and public API catalog for live data across India.**
+
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/padmarajnidagundi/indiarealtime-com)
 [![License: MIT](https://img.shields.io/github/license/padmarajnidagundi/indiarealtime-com)](LICENSE)
+[![CI](https://github.com/padmarajnidagundi/indiarealtime-com/actions/workflows/ci.yml/badge.svg)](https://github.com/padmarajnidagundi/indiarealtime-com/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/indiarealtime)](https://pypi.org/project/indiarealtime/)
 [![GitHub stars](https://img.shields.io/github/stars/padmarajnidagundi/indiarealtime-com?style=social)](https://github.com/padmarajnidagundi/indiarealtime-com/stargazers)
 [![Open issues](https://img.shields.io/github/issues/padmarajnidagundi/indiarealtime-com)](https://github.com/padmarajnidagundi/indiarealtime-com/issues)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](API/)

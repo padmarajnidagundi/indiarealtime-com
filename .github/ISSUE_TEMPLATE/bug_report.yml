@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a broken SDK, CLI, example, or API catalog entry
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Run `...`
+        2. Open `...`
+        3. Observe `...`
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SDK or environment version
+      placeholder: "indiarealtime 0.1.0 / Python 3.11 / Ubuntu 24.04"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      render: shell
