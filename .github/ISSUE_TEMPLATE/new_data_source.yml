@@ -1,0 +1,24 @@
+name: New data source
+description: Suggest a public India data source or API
+title: "[New data source]: "
+labels:
+  - new-api
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source name and URL
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Data and use case
+      description: Which data is available, who would use it, and how often it changes?
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Access requirements
+      description: Is authentication, a key, registration, or a rate limit involved?
